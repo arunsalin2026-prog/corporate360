@@ -6,9 +6,9 @@
 
 ## 🚦 CURRENT STATUS
 
-**Phase:** Phase 8 In Progress — Git initialized, domain corrected to .com, build verified
-**Last Session:** Session 13 — Domain update (.in → .com), git init + initial commit, vercel + gh CLIs installed
-**Next Action:** `gh auth login` → create GitHub repo → `vercel login` → `vercel` deploy → add env vars → `vercel --prod`
+**Phase:** 🎉 COMPLETE — Site is LIVE at https://coporate360.vercel.app
+**Last Session:** Session 14 — GA4, Speed Insights, exit intent popup, custom events deployed
+**Next Action:** Add env vars in Vercel dashboard → add custom domain → Google Search Console
 
 ---
 
@@ -131,10 +131,10 @@
 - [x] P10: 404 not-found.tsx ✓
 
 ### PHASE 8 — Deployment
-- [ ] P11: Git repo created and pushed
-- [ ] P11: Vercel project created
-- [ ] P11: All env vars added to Vercel
-- [ ] P11: First production deploy (vercel --prod)
+- [x] P11: Git repo created and pushed (github.com/arunsalin2026-prog/corporate360)
+- [x] P11: Vercel project created (coporate360 under arun-s-projects2)
+- [ ] P11: All env vars added to Vercel ← do in Vercel dashboard → Environment Variables
+- [x] P11: First production deploy — LIVE ✓ (35cdyHfL7 — Ready)
 - [ ] P11: Custom domain corporate360hub.com connected
 - [ ] P11: DNS records added at registrar
 - [ ] P11: SSL certificate provisioned
@@ -142,12 +142,12 @@
 - [ ] P11: www redirect working
 
 ### PHASE 9 — Post-Launch
-- [ ] P12: Google Analytics 4 connected
-- [ ] P12: GA4 custom events (form_submit, whatsapp_click, cta_click)
-- [ ] P12: Vercel Analytics + Speed Insights enabled
-- [ ] P12: Google Search Console verified
-- [ ] P12: Sitemap submitted to Search Console
-- [ ] P12: Exit intent popup (lead capture)
+- [x] P12: Google Analytics 4 connected (@next/third-parties GoogleAnalytics component)
+- [x] P12: GA4 custom events — contact_form_submit, career_application_submit, whatsapp_click, cta_click, exit_intent_shown, exit_intent_submit
+- [x] P12: Vercel Analytics + Speed Insights enabled
+- [ ] P12: Google Search Console verified ← add NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION env var in Vercel
+- [ ] P12: Sitemap submitted to Search Console ← after verification
+- [x] P12: Exit intent popup — navy/gold modal, desktop mouseleave + mobile scroll-up, /api/exit-intent email capture
 - [ ] P12: Client handover (guide + Sanity access + support contact)
 
 ---
@@ -165,6 +165,18 @@
 ---
 
 ## 📋 SESSION LOG
+
+### Session 14 — Analytics, Exit Intent Popup, Post-Launch Features
+**Date:** 2026-05-12
+**Completed:**
+- lib/analytics.ts: trackEvent() GA4 helper with window.gtag type safety
+- app/layout.tsx: GoogleAnalytics (@next/third-parties), SpeedInsights (@vercel/speed-insights), Google Search Console verification meta field (NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION)
+- components/ui/ExitIntentPopup.tsx: navy/gold modal, desktop mouseleave + mobile scroll-up (≥80px), sessionStorage guard, /api/exit-intent email capture with confirmation email
+- app/api/exit-intent/route.ts: standalone email-only lead capture endpoint
+- Custom GA4 events wired: contact_form_submit (ContactPageContent), career_application_submit (CareersPageContent), whatsapp_click (WhatsAppButton), cta_click (CTASection)
+- ExitIntentPopup added to app/(site)/layout.tsx
+- npm run build: 0 errors ✓ | 16 routes (added /api/exit-intent)
+**Next:** Add env vars in Vercel dashboard → add custom domain → Google Search Console verify + sitemap submit → client handover
 
 ### Session 13 — Domain Update + Git Init + Deploy Prep
 **Date:** 2026-05-11

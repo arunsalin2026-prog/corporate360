@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  :root {
+    --background: 40 25% 97%;
+    --foreground: 215 60% 14%;
+    --card: 0 0% 100%;
+    --card-foreground: 215 60% 14%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 60% 14%;
+    --primary: 215 60% 14%;
+    --primary-foreground: 40 25% 97%;
+    --secondary: 180 76% 27%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 40 10% 92%;
+    --muted-foreground: 215 14% 34%;
+    --accent: 40 58% 55%;
+    --accent-foreground: 215 60% 14%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 215 20% 85%;
+    --input: 215 20% 85%;
+    --ring: 180 76% 27%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-offwhite text-slate font-inter antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-montserrat text-navy;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+
+  .container-max {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}

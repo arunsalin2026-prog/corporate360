@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { trackEvent } from "@/lib/analytics";
 
 const WA_MESSAGE = encodeURIComponent(
   "Hi, I'm interested in Corporate 360 Hub's services. Can we connect?"
@@ -60,6 +61,7 @@ export default function WhatsAppButton({ whatsappNumber }: { whatsappNumber?: st
           aria-label="Chat on WhatsApp"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
+          onClick={() => trackEvent("whatsapp_click")}
           onMouseEnter={() => setShowTooltip(true)}
           onMouseLeave={() => setShowTooltip(false)}
           onFocus={() => setShowTooltip(true)}

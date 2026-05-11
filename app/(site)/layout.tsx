@@ -1,6 +1,7 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/layout/WhatsAppButton";
+import ExitIntentPopup from "@/components/ui/ExitIntentPopup";
 import { getSiteSettings } from "@/sanity/lib/queries";
 
 export default async function SiteLayout({
@@ -27,6 +28,7 @@ export default async function SiteLayout({
       <main id="main-content">{children}</main>
       <Footer siteSettings={settings} />
       <WhatsAppButton whatsappNumber={settings?.whatsappNumber} />
+      <ExitIntentPopup />
     </>
   );
 }

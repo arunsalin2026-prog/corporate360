@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState, useId, cloneElement } from "react";
+import { trackEvent } from "@/lib/analytics";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import {
@@ -347,6 +348,7 @@ function ApplicationSection() {
       const res = await fetch("/api/careers", { method: "POST", body: fd });
       if (!res.ok) throw new Error("Submission failed. Please try again.");
       setSubmitted(true);
+      trackEvent("career_application_submit");
       reset();
       setCvFile(null);
       if (fileInputRef.current) fileInputRef.current.value = "";

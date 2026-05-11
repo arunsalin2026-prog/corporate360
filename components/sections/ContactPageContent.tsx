@@ -17,6 +17,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useState, useId, cloneElement } from "react";
 import { contactFormSchema, type ContactFormValues } from "@/lib/validations";
 import { BRAND } from "@/lib/constants";
+import { trackEvent } from "@/lib/analytics";
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -137,6 +138,7 @@ function FormAndDetailsSection() {
       });
       if (!res.ok) throw new Error("Failed to send message. Please try again.");
       setSubmitted(true);
+      trackEvent("contact_form_submit", { service: data.service });
       reset();
     } catch (err) {
       setServerError(

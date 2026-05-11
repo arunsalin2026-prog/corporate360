@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
 
 export default function CTASection() {
   return (
@@ -56,6 +57,7 @@ export default function CTASection() {
 
           <Link
             href="/contact"
+            onClick={() => trackEvent("cta_click", { location: "cta_section" })}
             className="inline-flex items-center gap-2.5 px-10 py-4 bg-navy text-white font-montserrat font-bold text-sm rounded hover:bg-navy/90 hover:shadow-[0_8px_32px_rgba(11,31,58,0.45)] transition-all duration-300 group"
           >
             Let&apos;s Build Together

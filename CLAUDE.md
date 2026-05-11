@@ -10,9 +10,9 @@
 |---|---|
 | Project | Corporate 360 Hub — The Business Architecture |
 | Type | Marketing website + CMS + contact forms |
-| Domain | corporate360hub.in |
+| Domain | corporate360hub.com |
 | Repo | github.com/[USERNAME]/corporate360hub-website |
-| Production | https://corporate360hub.in |
+| Production | https://corporate360hub.com |
 | Sanity Studio | https://corporate360hub.sanity.studio |
 | Dev Server | localhost:3000 |
 | Studio Dev | localhost:3333 (npx sanity dev) |
@@ -123,7 +123,7 @@ CLAUDE.md                  ← This file
 RESEND_API_KEY=                        # resend.com → API Keys
 NEXT_PUBLIC_WHATSAPP_NUMBER=           # 91XXXXXXXXXX (no + prefix, for wa.me links)
 NEXT_PUBLIC_PHONE_NUMBER=              # +91 XXXXX XXXXX (display format)
-NEXT_PUBLIC_SITE_URL=                  # https://corporate360hub.in
+NEXT_PUBLIC_SITE_URL=                  # https://corporate360hub.com
 NEXT_PUBLIC_GA_MEASUREMENT_ID=         # G-XXXXXXXXXX from Google Analytics
 NEXT_PUBLIC_SANITY_PROJECT_ID=         # from sanity.io dashboard
 NEXT_PUBLIC_SANITY_DATASET=production
@@ -209,7 +209,7 @@ npx sanity deploy
 vercel logs --follow
 
 # Revalidate a page manually (after content stuck)
-curl -X POST https://corporate360hub.in/api/revalidate \
+curl -X POST https://corporate360hub.com/api/revalidate \
   -H "Content-Type: application/json" \
   -H "x-revalidate-secret: [SANITY_REVALIDATE_SECRET]" \
   -d '{"path": "/"}'
@@ -223,7 +223,7 @@ curl -X POST https://corporate360hub.in/api/revalidate \
 |---|---|
 | Client | [Friend's Name] |
 | Business | Corporate 360 Hub |
-| Email | contact@corporate360hub.in |
+| Email | contact@corporate360hub.com |
 | Sanity Studio URL | https://corporate360hub.sanity.studio |
 | Sanity Project ID | k33l6ras |
 | Sanity Dataset | production |
@@ -249,6 +249,15 @@ curl -X POST https://corporate360hub.in/api/revalidate \
 ## SESSION LOG
 
 <!-- Each session appends one entry. Keep entries concise. -->
+
+### Session 13 — Domain Update + Git Init
+Date: 2026-05-11
+Done:
+- Domain corrected from .in → .com across all source files (constants.ts, layout.tsx, robots.ts, sitemap.ts, .env.local)
+- npm run build: 0 errors ✓, 15 static pages ✓ (post-domain-update)
+- git init + initial commit e5af92d (67 files staged; .env.local excluded by .gitignore)
+- vercel CLI (v53.3.2) + gh CLI (v2.8.9) installed globally
+Next: gh auth login → create GitHub repo → vercel login → vercel deploy → add env vars → custom domain
 
 ### Session 12 — Pre-Deployment QA Pass
 Date: 2026-05-11
@@ -301,4 +310,4 @@ Next: Run Prompt 1 to scaffold the project.
 
 ---
 
-*CLAUDE.md v1.2 — Last updated: 2026-05-11 | Always update before ending a session.*
+*CLAUDE.md v1.3 — Last updated: 2026-05-11 | Always update before ending a session.*

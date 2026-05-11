@@ -6,9 +6,9 @@
 
 ## 🚦 CURRENT STATUS
 
-**Phase:** Phase 7 Complete — Pre-Deployment QA Pass Done
-**Last Session:** Session 12 — Accessibility fixes, responsive tap targets, build verified
-**Next Action:** Set real SANITY_API_READ_TOKEN → seed content in Studio → `npx sanity deploy` → Vercel deploy
+**Phase:** Phase 8 In Progress — Git initialized, domain corrected to .com, build verified
+**Last Session:** Session 13 — Domain update (.in → .com), git init + initial commit, vercel + gh CLIs installed
+**Next Action:** `gh auth login` → create GitHub repo → `vercel login` → `vercel` deploy → add env vars → `vercel --prod`
 
 ---
 
@@ -135,7 +135,7 @@
 - [ ] P11: Vercel project created
 - [ ] P11: All env vars added to Vercel
 - [ ] P11: First production deploy (vercel --prod)
-- [ ] P11: Custom domain corporate360hub.in connected
+- [ ] P11: Custom domain corporate360hub.com connected
 - [ ] P11: DNS records added at registrar
 - [ ] P11: SSL certificate provisioned
 - [ ] P11: All 7 pages verified on live domain
@@ -165,6 +165,21 @@
 ---
 
 ## 📋 SESSION LOG
+
+### Session 13 — Domain Update + Git Init + Deploy Prep
+**Date:** 2026-05-11
+**Completed:**
+- Domain corrected from `corporate360hub.in` → `corporate360hub.com` across all files:
+  `lib/constants.ts`, `app/layout.tsx`, `app/robots.ts`, `app/sitemap.ts`, `.env.local`, `CLAUDE.md`
+- `npm run build`: 0 errors ✓ (15 static pages) — confirmed after domain update
+- `git init` + staged all source files (`.env.local` excluded by `.gitignore`)
+- Initial commit created: `e5af92d`
+- Installed `vercel` CLI (v53.3.2) and `gh` CLI (v2.8.9) globally via npm
+**Pending (requires interactive terminal):**
+- `gh auth login` → `gh repo create corporate360hub-website --private --source=. --remote=origin --push`
+- `vercel login` → `vercel` (initial deploy) → add all 10 env vars → `vercel --prod`
+- `vercel domains add corporate360hub.com` + DNS records at registrar
+**Next:** Run auth + deploy steps above; seed Sanity content; `npx sanity deploy`
 
 ### Session 12 — Pre-Deployment QA Pass
 **Date:** 2026-05-11

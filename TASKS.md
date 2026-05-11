@@ -6,9 +6,9 @@
 
 ## 🚦 CURRENT STATUS
 
-**Phase:** 🎉 COMPLETE — Site is LIVE at https://coporate360.vercel.app
-**Last Session:** Session 14 — GA4, Speed Insights, exit intent popup, custom events deployed
-**Next Action:** Add env vars in Vercel dashboard → add custom domain → Google Search Console
+**Phase:** 🎉 LIVE — https://www.corporate360hub.com
+**Last Session:** Session 14 — Full deployment complete, custom domain connected, SSL active
+**Next Action:** Add env vars in Vercel → seed Sanity → Google Search Console → client handover
 
 ---
 
@@ -133,22 +133,25 @@
 ### PHASE 8 — Deployment
 - [x] P11: Git repo created and pushed (github.com/arunsalin2026-prog/corporate360)
 - [x] P11: Vercel project created (coporate360 under arun-s-projects2)
-- [ ] P11: All env vars added to Vercel ← do in Vercel dashboard → Environment Variables
+- [ ] P11: All env vars added to Vercel ← do in Vercel dashboard → Environment Variables → Redeploy
 - [x] P11: First production deploy — LIVE ✓ (35cdyHfL7 — Ready)
-- [ ] P11: Custom domain corporate360hub.com connected
-- [ ] P11: DNS records added at registrar
-- [ ] P11: SSL certificate provisioned
-- [ ] P11: All 7 pages verified on live domain
-- [ ] P11: www redirect working
+- [x] P11: Custom domain corporate360hub.com connected
+- [x] P11: DNS records added at GoDaddy (A @ → 216.198.79.1, CNAME www → vercel-dns-017)
+- [x] P11: SSL certificate provisioned (Let's Encrypt — auto)
+- [x] P11: All 7 pages live on www.corporate360hub.com
+- [x] P11: www redirect working (corporate360hub.com 307 → www)
 
 ### PHASE 9 — Post-Launch
 - [x] P12: Google Analytics 4 connected (@next/third-parties GoogleAnalytics component)
 - [x] P12: GA4 custom events — contact_form_submit, career_application_submit, whatsapp_click, cta_click, exit_intent_shown, exit_intent_submit
 - [x] P12: Vercel Analytics + Speed Insights enabled
-- [ ] P12: Google Search Console verified ← add NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION env var in Vercel
-- [ ] P12: Sitemap submitted to Search Console ← after verification
+- [ ] P12: All env vars added to Vercel ← RESEND_API_KEY, NEXT_PUBLIC_WHATSAPP_NUMBER, NEXT_PUBLIC_PHONE_NUMBER, NEXT_PUBLIC_SITE_URL, NEXT_PUBLIC_GA_MEASUREMENT_ID, NEXT_PUBLIC_SANITY_PROJECT_ID (k33l6ras), NEXT_PUBLIC_SANITY_DATASET (production), NEXT_PUBLIC_SANITY_API_VERSION (2024-01-01), SANITY_API_READ_TOKEN, SANITY_REVALIDATE_SECRET → then Redeploy
+- [ ] P12: Google Search Console verified ← get TXT/meta code from Search Console → add as NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION in Vercel → Redeploy
+- [ ] P12: Sitemap submitted to Search Console ← submit https://www.corporate360hub.com/sitemap.xml after verification
 - [x] P12: Exit intent popup — navy/gold modal, desktop mouseleave + mobile scroll-up, /api/exit-intent email capture
-- [ ] P12: Client handover (guide + Sanity access + support contact)
+- [ ] P12: Seed Sanity content ← npx sanity deploy → open www.corporate360hub.com/studio → fill all 5 documents
+- [ ] P12: Enable auto-renew on GoDaddy for corporate360hub.com
+- [ ] P12: Client handover ← share Sanity Studio URL + /docs/CLIENT-EDITOR-GUIDE.md + support contact (vishnuharidev1@gmail.com)
 
 ---
 

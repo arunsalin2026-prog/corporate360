@@ -3,8 +3,6 @@ import { Resend } from "resend";
 import { contactFormSchema } from "@/lib/validations";
 import { BRAND } from "@/lib/constants";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 // In-memory rate limit: email → timestamp of last submission
 const rateLimitMap = new Map<string, number>();
 const RATE_LIMIT_MS = 5 * 60 * 1000; // 5 minutes
@@ -34,6 +32,8 @@ export async function POST(req: NextRequest) {
     rateLimitMap.set(email, Date.now());
 
     console.log("[contact] Submission received:", { name, email, company, service, phone });
+
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
     await resend.emails.send({
       from: `Corporate 360 Hub <noreply@${BRAND.company.website}>`,

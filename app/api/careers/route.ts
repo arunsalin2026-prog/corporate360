@@ -2,8 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 import { BRAND } from "@/lib/constants";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
 const ALLOWED_TYPES = [
   "application/pdf",
@@ -40,6 +38,7 @@ export async function POST(req: NextRequest) {
 
     console.log("[careers] Application received:", { name, email, role, phone, cvName: cv.name, cvSize: cv.size });
 
+    const resend = new Resend(process.env.RESEND_API_KEY);
     const cvBase64 = Buffer.from(await cv.arrayBuffer()).toString("base64");
 
     await resend.emails.send({

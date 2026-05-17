@@ -28,7 +28,7 @@
 | Components | shadcn/ui | Installed components listed below |
 | Animation | Framer Motion | Used for hero, scroll reveals, mobile nav |
 | Forms | React Hook Form + Zod | Schemas in /lib/validations.ts |
-| Email | Resend | Contact + careers form delivery |
+| Email | Resend | Contact form delivery |
 | CMS | Sanity v3 | Schemas in /sanity/schemas/ |
 | Deployment | Vercel | Auto-deploy on git push to main |
 | Analytics | Vercel Analytics + GA4 | Events tracked in /lib/analytics.ts |
@@ -59,14 +59,11 @@ Icons: lucide-react throughout
   page.tsx                 ← Home (fetches from Sanity: homepage document)
   /about/page.tsx          ← About (fetches: aboutPage document)
   /services/page.tsx       ← Services (fetches: servicesPage document)
-  /business-model/page.tsx ← Static — no CMS (complex layout)
   /industries/page.tsx     ← Static — no CMS
-  /careers/page.tsx        ← Dynamic (fetches: careersPage document)
   /contact/page.tsx        ← Static form page
   /not-found.tsx           ← 404 page
   /api
     /contact/route.ts      ← POST: contact form → Resend email
-    /careers/route.ts      ← POST: CV upload → Resend email with attachment
     /revalidate/route.ts   ← POST: Sanity webhook → revalidatePath()
 
 /components
@@ -88,7 +85,6 @@ Icons: lucide-react throughout
     homepage.ts
     aboutPage.ts
     servicesPage.ts
-    careersPage.ts
     siteSettings.ts
     index.ts               ← exports all schemas
   /lib
@@ -98,7 +94,7 @@ Icons: lucide-react throughout
 
 /lib
   constants.ts             ← brand colors, nav links, company data, fallback content
-  validations.ts           ← Zod schemas for contact + career forms
+  validations.ts           ← Zod schemas for contact form
   analytics.ts             ← trackEvent() helper for GA4 custom events
 
 /docs
@@ -151,11 +147,11 @@ is more than enough. Single SDK call per form submission.
 
 **ISR Strategy:**
 - Pages with CMS content: revalidate every 60 seconds (ISR)
-- Pages without CMS (business-model, industries, contact): static (no revalidate)
+- Pages without CMS (industries, contact): static (no revalidate)
 - revalidate/route.ts handles on-demand revalidation from Sanity publish webhook
 
 **Singleton Documents in Sanity:**
-homepage, aboutPage, servicesPage, siteSettings, careersPage are all singletons
+homepage, aboutPage, servicesPage, siteSettings are all singletons
 (one document per type). No listing pages needed. Query by _type, take first result.
 
 ---
@@ -181,9 +177,7 @@ Track installed components here as they're added:
 | Home | / | ✅ Yes | homepage |
 | About | /about | ✅ Yes | aboutPage |
 | Services | /services | ✅ Yes | servicesPage |
-| Business Model | /business-model | ❌ Static | — |
 | Industries | /industries | ❌ Static | — |
-| Careers | /careers | ✅ Yes | careersPage |
 | Contact | /contact | ❌ Static | — |
 
 ---
@@ -223,7 +217,7 @@ curl -X POST https://corporate360hub.com/api/revalidate \
 |---|---|
 | Client | [Friend's Name] |
 | Business | Corporate 360 Hub |
-| Email | contact@corporate360hub.com |
+| Email | info@corporate360hub.com |
 | Sanity Studio URL | https://corporate360hub.sanity.studio |
 | Sanity Project ID | k33l6ras |
 | Sanity Dataset | production |
@@ -240,8 +234,7 @@ curl -X POST https://corporate360hub.com/api/revalidate \
 
 <!-- Add any bugs, gotchas, or things to revisit here -->
 - [ ] OG image at /public/og-image.jpg is placeholder — needs real image
-- [ ] Instagram and Facebook URLs pending from client
-- [ ] Link Vercel project (vercel link) and add env vars to Vercel dashboard
+- [ ] Add env vars to Vercel dashboard (RESEND_API_KEY, SANITY_API_READ_TOKEN, SANITY_REVALIDATE_SECRET)
 
 ---
 
@@ -252,18 +245,25 @@ curl -X POST https://corporate360hub.com/api/revalidate \
 ### Session 15 — Content & Brand Updates
 Date: 2026-05-17
 Done:
-- Founder profile section added to About page — full bio, 8-role career timeline, awards block
-- Founder photo added: /public/images/founder-arun-salin.jpg (object-center positioning)
+- Founder profile (Arun Salin) added to About page — full bio, 8-role career timeline, photo
+- Founder photo: /public/images/founder-arun-salin.jpg (object-center positioning)
+- Awards block removed from founder section; "#1 Kerala — Atomberg" stat removed
+- Our Story rewritten as full-width section (no photo); new STORY_PILLARS + RED_FLAGS content
 - Business Model tab removed entirely (page, components, nav link, sitemap, constants)
+- Careers page removed entirely (page, API route, Sanity schema, validations, nav link)
+- Services: 6th pillar added — Financial Systems Management (PieChart icon, page section, pill nav)
+- Contact form service dropdown: Financial Systems Management option added
 - Office address updated: Basement Floor, Pallath Square, Suite No. 370B, FACT Kalamassery Rd, Kalamassery, Kochi 683104
 - Google Maps embed updated to exact coordinates (10.064625, 76.321830)
 - Phone + WhatsApp updated: +91 70342 44404 / 917034244404
 - Email updated: info@corporate360hub.com (was contact@)
-- Brand scope expanded: all Kerala/14-districts references replaced with South India across every file
-- States/cities pills section removed from About page coverage section
-- Navbar fixed: always navy on inner pages, transparent only on home
-- "Mold" → "Mould" in hero headline and mission fallback
-Next: vercel link → add env vars to Vercel → git push to deploy
+- Brand scope: all Kerala/14-districts references → South India across every file
+- Founded year updated to 2026 across all pages
+- Navbar: transparent only on home page (always navy on inner pages); "Let's Talk" now opens WhatsApp directly
+- Social links updated: LinkedIn, Instagram, Facebook (real URLs); YouTube icon removed
+- JSON-LD sameAs: LinkedIn + Instagram; areaServed → South India
+- Site is LIVE at corporate360hub.com — deployed via Vercel
+Next: Add env vars to Vercel dashboard → RESEND_API_KEY, SANITY_API_READ_TOKEN, SANITY_REVALIDATE_SECRET
 
 ### Session 13 — Domain Update + Git Init
 Date: 2026-05-11
@@ -325,4 +325,4 @@ Next: Run Prompt 1 to scaffold the project.
 
 ---
 
-*CLAUDE.md v1.3 — Last updated: 2026-05-11 | Always update before ending a session.*
+*CLAUDE.md v1.4 — Last updated: 2026-05-17 | Always update before ending a session.*

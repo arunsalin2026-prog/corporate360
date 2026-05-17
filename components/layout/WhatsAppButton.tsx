@@ -26,7 +26,7 @@ function WhatsAppIcon({ size = 28 }: { size?: number }) {
 export default function WhatsAppButton({ whatsappNumber }: { whatsappNumber?: string }) {
   const [showTooltip, setShowTooltip] = useState(false);
 
-  const phone = whatsappNumber ?? process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "";
+  const phone = (whatsappNumber ?? process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "").trim();
   const waUrl = phone
     ? `https://wa.me/${phone}?text=${WA_MESSAGE}`
     : `https://wa.me/?text=${WA_MESSAGE}`;

@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { NAV_LINKS, BRAND } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
-const WA_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "917034244404";
+const WA_NUMBER = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "917034244404").trim();
 const WA_URL = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent("Hi, I'm interested in Corporate 360 Hub's services. Can we connect?")}`;
 
 export default function Navbar() {

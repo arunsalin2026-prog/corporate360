@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Mail, MapPin, Globe, Linkedin, Instagram, Facebook, Youtube } from "lucide-react";
+import { Mail, MapPin, Globe, Linkedin, Instagram, Facebook } from "lucide-react";
 import { NAV_LINKS, BRAND } from "@/lib/constants";
 import type { SiteSettings } from "@/sanity/lib/queries";
 
@@ -67,7 +67,6 @@ export default function Footer({ siteSettings }: { siteSettings?: SiteSettings |
     { icon: Linkedin, href: siteSettings?.linkedinUrl ?? BRAND.company.social.linkedin, label: "LinkedIn" },
     { icon: Instagram, href: siteSettings?.instagramUrl ?? BRAND.company.social.instagram, label: "Instagram" },
     { icon: Facebook, href: siteSettings?.facebookUrl ?? BRAND.company.social.facebook, label: "Facebook" },
-    { icon: Youtube, href: siteSettings?.youtubeUrl ?? BRAND.company.social.youtube, label: "YouTube" },
   ];
 
   return (

@@ -38,7 +38,10 @@ const jsonLd = {
     postalCode: "683104",
     addressCountry: "IN",
   },
-  sameAs: ["https://linkedin.com/company/corporate360hub"],
+  sameAs: [
+    "https://www.linkedin.com/company/corporate-360-hub/",
+    "https://www.instagram.com/corporate360hub",
+  ],
 };
 
 export const metadata: Metadata = {

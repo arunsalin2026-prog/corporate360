@@ -31,9 +31,6 @@ export default defineConfig({
             S.listItem().title('Services Page').id('servicesPage').child(
               S.document().schemaType('servicesPage').documentId('servicesPage')
             ),
-            S.listItem().title('Careers Page').id('careersPage').child(
-              S.document().schemaType('careersPage').documentId('careersPage')
-            ),
             S.listItem().title('Site Settings').id('siteSettings').child(
               S.document().schemaType('siteSettings').documentId('siteSettings')
             ),

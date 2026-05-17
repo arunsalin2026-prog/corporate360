@@ -47,7 +47,7 @@ export const homepageSchema = defineType({
       name: 'statBadge3',
       title: 'Stat Badge 3',
       type: 'string',
-      initialValue: '5 Business Pillars',
+      initialValue: '6 Business Pillars',
     }),
     defineField({
       name: 'whyUsHeadline',

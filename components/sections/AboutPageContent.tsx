@@ -118,7 +118,7 @@ export default function AboutPageContent({
     <div className="overflow-x-hidden">
       <HeroSection />
       <VisionMissionSection vision={vision} mission={mission} />
-      <OurStorySection ourStory={ourStory} founderName={founderName} founderDesignation={founderDesignation} founderPhoto={founderPhoto} />
+      <OurStorySection ourStory={ourStory} />
       <MeetTheFounderSection founderPhoto={founderPhoto} />
       <CoreValuesSection coreValues={coreValues} />
       <CoverageMapSection />
@@ -231,92 +231,131 @@ function VisionMissionSection({ vision, mission }: { vision?: string; mission?: 
 
 // ─── 3. Our Story ─────────────────────────────────────────────────────────────
 
-const FALLBACK_STORY_PARAGRAPHS = [
-  <>
-    Corporate 360 Hub was born from a clear market gap in Kerala —
-    companies were forced to manage{" "}
-    <span className="text-navy font-semibold">
-      separate vendors for recruitment, branding, and distribution
-    </span>
-    . Coordinating three agencies meant wasted time, misaligned messaging, and
-    no single owner of the result.
-  </>,
-  <>
-    We created one firm to own all three. A{" "}
-    <span className="text-teal font-semibold">Single Point of Responsibility</span>{" "}
-    that handles your people, your brand, and your market reach — under one
-    roof, with one team accountable for your growth.
-  </>,
-  <>
-    Founded in 2024, we operate across South India with a single
-    mission:{" "}
-    <span className="text-navy font-semibold">
-      be the growth backbone for India&apos;s most ambitious brands.
-    </span>
-  </>,
+const STORY_PILLARS = [
+  { icon: "💰", label: "Finance", desc: "Your financial systems, MIS reporting, compliance frameworks and P&L monitoring — managed properly, so your business runs clean." },
+  { icon: "👥", label: "People", desc: "Recruitment, certification and retention of your talent through our proprietary Sales & Vitality Bootcamp and monthly wellness monitoring." },
+  { icon: "📢", label: "Brand", desc: "ATL, BTL and TTL marketing execution — from billboard to shelf to your client's digital CRM — all managed by one team." },
+  { icon: "📊", label: "Intelligence", desc: "Deep market research, GPS competitor mapping and new opportunity identification — so every decision is data-backed, not guesswork." },
+  { icon: "🚀", label: "Activation", desc: "Product launches, dealer meets, roadshows and in-store activations that actually convert — not just events that look good." },
+  { icon: "🗺️", label: "Network", desc: "Distributor vetting and appointment, direct dealer sign-ups, and channel expansion across every district we operate in." },
 ];
 
-function OurStorySection({
-  ourStory,
-  founderName,
-  founderDesignation,
-  founderPhoto,
-}: {
-  ourStory?: unknown[];
-  founderName?: string;
-  founderDesignation?: string;
-  founderPhoto?: unknown;
-}) {
-  const photoUrl = founderPhoto
-    ? urlFor(founderPhoto).width(600).height(750).fit("crop").auto("format").url()
-    : "/images/founder-arun-salin.jpg";
+const RED_FLAGS = [
+  "Misaligned strategies that worked against each other",
+  "Hours wasted in coordination meetings that produced nothing",
+  "Budgets split across six retainers with diluted, unmeasurable returns",
+  "Messages to the market that contradicted each other",
+  "Not one single person accountable for the final outcome",
+];
 
+function OurStorySection({ ourStory }: { ourStory?: unknown[] }) {
   return (
     <section className="section-padding bg-white">
-      <div className="container-max">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="container-max max-w-4xl">
 
-          {/* Left — text */}
-          <motion.div {...fadeLeft(0.05)}>
-            <SectionLabel>Our Story</SectionLabel>
-            <h2 className="font-montserrat font-bold text-navy text-3xl md:text-4xl leading-tight mb-5">
-              Why We Built This
-            </h2>
-            <div className="w-14 h-[2px] bg-gold mb-7" />
+        <motion.div {...fadeUp(0.05)} className="mb-10">
+          <SectionLabel>Our Story</SectionLabel>
+          <h2 className="font-montserrat font-bold text-navy text-3xl md:text-4xl leading-tight mb-5">
+            Why We Built This
+          </h2>
+          <div className="w-14 h-[2px] bg-gold" />
+        </motion.div>
 
-            <div className="space-y-4 font-inter text-slate text-base leading-relaxed">
-              {ourStory && ourStory.length > 0 ? (
-                <PortableText value={ourStory as Parameters<typeof PortableText>[0]["value"]} />
-              ) : (
-                FALLBACK_STORY_PARAGRAPHS.map((para, i) => (
-                  <p key={i}>{para}</p>
-                ))
-              )}
-            </div>
-          </motion.div>
+        {ourStory && ourStory.length > 0 ? (
+          <div className="font-inter text-slate text-base leading-relaxed">
+            <PortableText value={ourStory as Parameters<typeof PortableText>[0]["value"]} />
+          </div>
+        ) : (
+          <div className="space-y-10 font-inter text-slate text-base leading-relaxed">
 
-          {/* Right — founder photo */}
-          <motion.div {...fadeRight(0.12)}>
-            <div className="relative rounded-xl overflow-hidden aspect-[4/5]">
-              <Image
-                src={photoUrl}
-                alt={founderName ?? "Arun Salin"}
-                fill
-                className="object-cover object-center"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-navy/80 to-transparent p-6">
-                <p className="font-montserrat font-bold text-white text-lg">
-                  {founderName ?? "Arun Salin"}
-                </p>
-                <p className="font-inter text-white/70 text-sm">
-                  {founderDesignation ?? "Founder & Lead Strategist"}
+            {/* The Gap We Saw */}
+            <motion.div {...fadeUp(0.07)}>
+              <h3 className="font-montserrat font-bold text-navy text-xl mb-4">The Gap We Saw</h3>
+              <p className="mb-3">India&apos;s most ambitious companies were quietly bleeding — not from bad products, not from weak demand, but from something far more fixable.</p>
+              <p className="mb-3">They were managing too many agencies with too little alignment.</p>
+              <p className="mb-3">One firm for financial systems. Another for recruitment. A third for training. A fourth for marketing. A fifth for branding. A sixth for market research. And yet another for distributor and dealer appointments.</p>
+              <p className="mb-3">Each agency did its job. In isolation.</p>
+              <p className="mb-3">Nobody talked to each other. Nobody owned the full picture. And nobody was accountable when the result fell short.</p>
+              <p className="mb-5">The finance team didn&apos;t know what the marketing team was spending. The recruitment firm didn&apos;t know what kind of person the sales strategy actually needed. The branding agency had never visited a single retail outlet. The distributor network was built without a shred of market intelligence.</p>
+              <p className="mb-4 font-medium text-navy">The result was always the same:</p>
+              <ul className="space-y-2 mb-3">
+                {RED_FLAGS.map((flag, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="w-2 h-2 rounded-full bg-red-500 flex-shrink-0 mt-2" />
+                    <span>{flag}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            {/* The Moment It Became Clear */}
+            <motion.div {...fadeUp(0.08)}>
+              <h3 className="font-montserrat font-bold text-navy text-xl mb-4">The Moment It Became Clear</h3>
+              <p className="mb-3">We saw this pattern play out — not once, not twice — but consistently, across some of India&apos;s most well-funded and well-intentioned companies.</p>
+              <p className="mb-3">We saw FMCG brands invest crores in television campaigns, only to lose the sale at the shelf because nobody had trained the promoter standing in front of the customer.</p>
+              <p className="mb-3">We saw growing companies hire brilliant talent through expensive recruitment firms, only to watch that talent walk out the door within 90 days — because nobody supported them after the placement, nobody tracked their energy, and nobody invested in keeping them performing.</p>
+              <p className="mb-3">We saw brands enter new markets by appointing distributors the wrong way — without financial vetting, without market intelligence, without a system — wasting months of time and hundreds of thousands of rupees on a network that never delivered.</p>
+              <p>And in every single case, when we asked who was responsible — the finger pointed in six different directions.</p>
+            </motion.div>
+
+            {/* What We Decided to Build */}
+            <motion.div {...fadeUp(0.08)}>
+              <h3 className="font-montserrat font-bold text-navy text-xl mb-4">What We Decided to Build</h3>
+              <p className="mb-3">We decided the market needed something that didn&apos;t exist.</p>
+              <p className="mb-1">Not a better HR firm.</p>
+              <p className="mb-1">Not a smarter marketing agency.</p>
+              <p className="mb-4">Not a sharper financial advisor.</p>
+              <p className="mb-3">One firm that did all of it — and owned all of it.</p>
+              <p>A <span className="text-teal font-semibold">Single Point of Responsibility</span> where one team managed your finances, found your people, trained them, built your brand, researched your market, launched your products, and expanded your distribution network — all connected, all accountable, all under one roof.</p>
+              <p className="mt-3 font-montserrat font-bold text-navy">We called it Corporate 360 Hub.</p>
+            </motion.div>
+
+            {/* The Architecture */}
+            <motion.div {...fadeUp(0.08)}>
+              <h3 className="font-montserrat font-bold text-navy text-xl mb-4">The Architecture We Drew</h3>
+              <p className="mb-6">We built Corporate 360 Hub around six integrated pillars — each one designed not to function in isolation, but to feed every other:</p>
+              <div className="grid sm:grid-cols-2 gap-4 mb-6">
+                {STORY_PILLARS.map((pillar) => (
+                  <div key={pillar.label} className="p-4 bg-offwhite rounded-xl border border-slate/10">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-lg">{pillar.icon}</span>
+                      <span className="font-montserrat font-bold text-navy text-sm">{pillar.label}</span>
+                    </div>
+                    <p className="font-inter text-slate/70 text-sm leading-relaxed">{pillar.desc}</p>
+                  </div>
+                ))}
+              </div>
+              <p className="mb-3">When all six work together, something extraordinary happens.</p>
+              <p>Market intelligence informs which districts to enter. Distributors are appointed in those districts with full financial vetting. A certified, trained team is deployed there. BTL campaigns drive customers to those dealers. Financial systems capture and report the results. Leadership reviews a single dashboard.</p>
+              <p className="mt-3 font-medium text-navy">That is 360° architecture. That is what we built.</p>
+            </motion.div>
+
+            {/* Why Now */}
+            <motion.div {...fadeUp(0.08)}>
+              <h3 className="font-montserrat font-bold text-navy text-xl mb-4">Why 2026. Why Now.</h3>
+              <p className="mb-3">We founded Corporate 360 Hub in 2026 — not by accident, but by design.</p>
+              <p className="mb-3">South India&apos;s consumer markets are at an inflection point. Brands are expanding aggressively. Competition is intensifying. Distribution windows are narrowing. The cost of fragmented execution has never been higher.</p>
+              <p className="mb-3">Companies that enter South India with one integrated partner will move faster, spend smarter and hold market share longer than those still juggling six agencies.</p>
+              <p className="mb-3">We built Corporate 360 Hub to be that partner.</p>
+              <p className="mb-3">We operate across South India with a presence that goes beyond city offices — with on-ground coordinators, verified distributor relationships and certified field teams covering every major district.</p>
+              <p>Our mission is simple and non-negotiable: <span className="font-semibold text-navy">Be the growth backbone for India&apos;s most ambitious brands.</span></p>
+            </motion.div>
+
+            {/* Closing promise */}
+            <motion.div {...fadeUp(0.08)}>
+              <div className="bg-navy rounded-xl p-8">
+                <p className="font-inter font-semibold text-gold text-xs uppercase tracking-[0.22em] mb-4">The Promise That Drives Everything</p>
+                <p className="font-inter text-white/80 text-base leading-relaxed mb-4">When you work with Corporate 360 Hub, you are not hiring a vendor. You are appointing a growth partner who is accountable — by contract, by culture and by conviction — for every function that determines whether your business grows or stalls.</p>
+                <p className="font-montserrat font-bold text-gold text-lg mb-5">One call. One team. One result.</p>
+                <p className="font-inter text-white/60 text-sm leading-relaxed italic">
+                  &ldquo;We find the dealers to sell your product. We hire the staff to promote it. We manage your finances so your growth is sustainable. We keep your people energised so your sales never dip. We build the brand so your customers trust it. And we map the market so your next move is always the right one.&rdquo;
                 </p>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
 
-        </div>
+          </div>
+        )}
+
       </div>
     </section>
   );
@@ -391,12 +430,6 @@ const FOUNDER_BIO_PARAS = [
   "Arun's career is not a textbook story. It is a 15-year master class in what actually works — and what doesn't — when brands try to grow across South India's highly competitive and distribution-intensive markets.",
 ];
 
-const FOUNDER_AWARDS = [
-  "Great Leader Award",
-  "South Star Award",
-  "Outstanding Contribution — 3 Consecutive Quarters",
-];
-
 function MeetTheFounderSection({ founderPhoto }: { founderPhoto?: unknown }) {
   const photoUrl = founderPhoto
     ? urlFor(founderPhoto).width(600).height(750).fit("crop").auto("format").url()
@@ -445,11 +478,10 @@ function MeetTheFounderSection({ founderPhoto }: { founderPhoto?: unknown }) {
             </div>
 
             {/* Key stats */}
-            <div className="grid grid-cols-3 gap-4 pt-6 border-t border-slate/10">
+            <div className="grid grid-cols-2 gap-4 pt-6 border-t border-slate/10">
               {[
                 { value: "15+", label: "Years Experience" },
                 { value: "50×", label: "Market Growth" },
-                { value: "#1", label: "Kerala — Atomberg" },
               ].map((stat) => (
                 <div key={stat.label} className="text-center">
                   <p className="font-montserrat font-bold text-navy text-2xl leading-none mb-1">
@@ -550,23 +582,6 @@ function MeetTheFounderSection({ founderPhoto }: { founderPhoto?: unknown }) {
           </div>
         </motion.div>
 
-        {/* Awards */}
-        <motion.div {...fadeUp(0.1)} className="bg-navy rounded-xl p-8 text-center">
-          <p className="font-inter font-semibold text-gold text-xs uppercase tracking-[0.22em] mb-4">
-            National Recognition — Atomberg Technologies
-          </p>
-          <div className="flex flex-wrap justify-center gap-3">
-            {FOUNDER_AWARDS.map((award) => (
-              <span
-                key={award}
-                className="px-4 py-2 bg-gold/10 border border-gold/25 rounded-full font-inter text-gold text-sm font-medium"
-              >
-                {award}
-              </span>
-            ))}
-          </div>
-        </motion.div>
-
       </div>
     </section>
   );
@@ -655,7 +670,7 @@ function CoverageMapSection() {
         >
           {[
             { value: "5", label: "States Covered" },
-            { value: "2024", label: "Founded" },
+            { value: "2026", label: "Founded" },
             { value: "1", label: "Point of Responsibility" },
           ].map((stat) => (
             <div key={stat.label} className="text-center">
@@ -729,15 +744,14 @@ function TeamSection({
         {/* Supporting text + CTA */}
         <motion.div {...fadeUp(0.15)} className="text-center max-w-md mx-auto">
           <p className="font-inter text-slate text-sm leading-relaxed mb-6">
-            Growing team — open positions are listed on our Careers page.
-            We&apos;re looking for sharp, driven people to join South India&apos;s most
-            ambitious business architecture firm.
+            We&apos;re always looking for sharp, driven people to join South India&apos;s most
+            ambitious business architecture firm. Get in touch with us directly.
           </p>
           <Link
-            href="/careers"
+            href="/contact"
             className="inline-flex items-center gap-2 px-7 py-3 bg-navy text-white font-montserrat font-bold text-sm rounded hover:bg-navy/90 hover:shadow-[0_6px_20px_rgba(11,31,58,0.25)] transition-all duration-300 group"
           >
-            Join Our Team
+            Get In Touch
             <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform duration-200" />
           </Link>
         </motion.div>

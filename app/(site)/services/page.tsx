@@ -5,9 +5,9 @@ import { getServicesPage } from "@/sanity/lib/queries";
 export const revalidate = 60;
 
 export const metadata: Metadata = {
-  title: "Our Services — 5 Business Pillars",
+  title: "Our Services — 6 Business Pillars",
   description:
-    "Corporate 360 Hub's 5 integrated service pillars: Talent Acquisition & HR Training, Marketing & Branding (ATL·BTL·TTL), Market Research, Product Launches & Dealer Meets, and Network Expansion — across South India.",
+    "Corporate 360 Hub's 6 integrated service pillars: Talent Acquisition, Marketing & Branding, Market Research, Product Launches, Network Expansion, and Financial Systems Management — across South India.",
   keywords: [
     "HR training South India",
     "BTL activation South India",

@@ -8,6 +8,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { NAV_LINKS, BRAND } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
+const WA_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "917034244404";
+const WA_URL = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent("Hi, I'm interested in Corporate 360 Hub's services. Can we connect?")}`;
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -88,12 +91,14 @@ export default function Navbar() {
                 );
               })}
 
-              <Link
-                href="/contact"
+              <a
+                href={WA_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="ml-4 px-6 py-2.5 bg-gold text-navy font-montserrat font-bold text-sm rounded hover:bg-gold/90 hover:shadow-[0_0_20px_rgba(201,168,76,0.35)] transition-all duration-300 whitespace-nowrap"
               >
                 Let&apos;s Talk
-              </Link>
+              </a>
             </div>
 
             {/* Mobile hamburger */}
@@ -185,13 +190,15 @@ export default function Navbar() {
                 transition={{ delay: 0.52, duration: 0.28 }}
                 className="mt-10"
               >
-                <Link
-                  href="/contact"
+                <a
+                  href={WA_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={() => setIsOpen(false)}
                   className="inline-block px-8 py-4 bg-gold text-navy font-montserrat font-bold text-lg rounded hover:bg-gold/90 transition-colors duration-200"
                 >
                   Let&apos;s Talk
-                </Link>
+                </a>
               </motion.div>
 
               <motion.p

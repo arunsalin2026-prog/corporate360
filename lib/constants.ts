@@ -16,10 +16,9 @@ export const BRAND = {
     website: "corporate360hub.com",
     location: "Basement Floor, Pallath Square, Suite No. 370B, FACT Kalamassery Rd, Kalamassery, Kochi, Kerala 683104",
     social: {
-      linkedin: "https://linkedin.com/company/corporate360hub",
-      instagram: "#", // Pending from client
-      facebook: "#",  // Pending from client
-      youtube: "#",   // Pending from client
+      linkedin: "https://www.linkedin.com/company/corporate-360-hub/",
+      instagram: "https://www.instagram.com/corporate360hub?utm_source=qr&igsh=MWJtaHVtMnBlNWxqYg==",
+      facebook: "https://www.facebook.com/share/18NpNv2wNQ/",
     },
   },
 } as const;
@@ -29,11 +28,10 @@ export const NAV_LINKS = [
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Industries", href: "/industries" },
-  { label: "Careers", href: "/careers" },
   { label: "Contact", href: "/contact" },
 ] as const;
 
-// The 5 core service pillars — used on Services page and service-detail sections
+// The 6 core service pillars — used on Services page and service-detail sections
 export const SERVICES = [
   {
     id: "talent",
@@ -75,9 +73,17 @@ export const SERVICES = [
       "Build and activate distribution networks across South India — from dealer onboarding to channel activation.",
     icon: "Network",
   },
+  {
+    id: "finance",
+    number: "06",
+    title: "Financial Systems Management",
+    description:
+      "Accounting systems setup, MIS reporting, compliance frameworks, P&L monitoring, and working capital advisory.",
+    icon: "PieChart",
+  },
 ] as const;
 
-// Home page — 5-card overview strip (same data, aliased for clarity)
+// Home page — 6-card overview strip (same data, aliased for clarity)
 export const HOME_SERVICES = SERVICES;
 
 // Full industries for /industries page and home strip
@@ -103,7 +109,7 @@ export const STATS = [
 export const HERO_BADGES = [
   { value: "5", label: "States" },
   { value: "360°", label: "Solutions" },
-  { value: "5", label: "Business Pillars" },
+  { value: "6", label: "Business Pillars" },
 ] as const;
 
 export const SITE_METADATA = {

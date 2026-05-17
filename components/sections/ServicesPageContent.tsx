@@ -8,6 +8,7 @@ import {
   BarChart2,
   Rocket,
   Network,
+  PieChart,
   CheckCircle2,
   ArrowRight,
   type LucideIcon,
@@ -20,6 +21,7 @@ const iconMap = {
   BarChart2,
   Rocket,
   Network,
+  PieChart,
 } as const;
 
 // ─── Full pillar data ─────────────────────────────────────────────────────────
@@ -119,6 +121,25 @@ const PILLARS = [
       "Network health audits and performance benchmarking",
     ],
   },
+  {
+    id: "finance",
+    number: "06",
+    title: "Financial Systems Management",
+    icon: "PieChart" as const,
+    paragraphs: [
+      "Growth without financial clarity is growth without control. Our Financial Systems Management practice helps businesses build the financial backbone that supports every other function — from day-to-day accounting to boardroom-ready MIS reporting.",
+      "We design and implement accounting systems, financial processes, and compliance frameworks that are built for your business size and sector. Whether you're a startup formalising your books or an established company cleaning up financial reporting, we structure systems that give you accurate, timely visibility into your numbers.",
+      "Beyond setup, we provide ongoing advisory — monitoring your P&L, flagging working capital risks, and ensuring your compliance obligations are met without last-minute scrambles. One partner. Complete financial architecture.",
+    ],
+    features: [
+      "Accounting systems setup and process design",
+      "MIS reporting frameworks and management dashboards",
+      "Compliance frameworks — statutory, regulatory, and internal",
+      "P&L monitoring and financial performance review",
+      "Working capital advisory and cash flow management",
+      "Financial process audits and optimisation",
+    ],
+  },
 ] as const;
 
 // ─── Hero pill nav ────────────────────────────────────────────────────────────
@@ -128,6 +149,7 @@ const PILL_NAV = [
   { label: "Research", href: "#pillar-research" },
   { label: "Launches", href: "#pillar-launches" },
   { label: "Network", href: "#pillar-network" },
+  { label: "Finance", href: "#pillar-finance" },
 ];
 
 // ─── Animation helpers ────────────────────────────────────────────────────────
@@ -228,7 +250,7 @@ function PageHero() {
           {...fadeUp(0.05)}
           className="font-inter font-semibold text-gold text-xs uppercase tracking-[0.22em]"
         >
-          Our 5 Pillars
+          Our 6 Pillars
         </motion.span>
 
         <motion.h1
@@ -242,7 +264,7 @@ function PageHero() {
           {...fadeUp(0.15)}
           className="font-inter text-white/65 text-lg leading-relaxed max-w-2xl mb-12"
         >
-          Five integrated service pillars. One accountable partner. Delivered
+          Six integrated service pillars. One accountable partner. Delivered
           across South India.
         </motion.p>
 
@@ -463,7 +485,7 @@ function SPRSection() {
           {...fadeUp(0.08)}
           className="font-montserrat font-bold text-navy text-3xl md:text-4xl lg:text-5xl mt-3 mb-6 max-w-3xl mx-auto leading-tight"
         >
-          All 5 pillars. One partner.{" "}
+          All 6 pillars. One partner.{" "}
           <span className="whitespace-nowrap">Zero coordination headache.</span>
         </motion.h2>
 
@@ -472,7 +494,7 @@ function SPRSection() {
           className="font-inter text-navy/70 text-lg leading-relaxed max-w-2xl mx-auto mb-10"
         >
           Most businesses waste time and budget managing multiple agencies that
-          don&apos;t talk to each other. We deliver all five pillars as an integrated
+          don&apos;t talk to each other. We deliver all six pillars as an integrated
           system — one point of contact, a shared strategy, and measurable outcomes
           at every stage.
         </motion.p>

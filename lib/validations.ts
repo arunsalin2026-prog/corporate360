@@ -14,16 +14,4 @@ export const contactFormSchema = z.object({
     .max(2000),
 });
 
-// CV is validated manually in the form handler (FileList → File coercion)
-export const careerFormSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters").max(100),
-  phone: z
-    .string()
-    .regex(/^\d{10}$/, "Enter a valid 10-digit phone number"),
-  email: z.string().email("Please enter a valid email address"),
-  role: z.string().min(1, "Please select a role"),
-  message: z.string().max(1000).optional().or(z.literal("")),
-});
-
 export type ContactFormValues = z.infer<typeof contactFormSchema>;
-export type CareerFormValues = z.infer<typeof careerFormSchema>;

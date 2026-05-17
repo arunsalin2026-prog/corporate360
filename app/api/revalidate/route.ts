@@ -12,7 +12,6 @@ export async function POST(req: NextRequest) {
     revalidatePath("/");
     revalidatePath("/about");
     revalidatePath("/services");
-    revalidatePath("/careers");
 
     return NextResponse.json({ revalidated: true, timestamp: Date.now() });
   } catch {

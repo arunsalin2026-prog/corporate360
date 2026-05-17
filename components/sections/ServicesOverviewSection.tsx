@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Users, Megaphone, BarChart2, Rocket, Network } from "lucide-react";
+import { Users, Megaphone, BarChart2, Rocket, Network, PieChart } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { HOME_SERVICES } from "@/lib/constants";
 
@@ -12,6 +12,7 @@ const iconMap = {
   BarChart2,
   Rocket,
   Network,
+  PieChart,
 } as const;
 
 export default function ServicesOverviewSection() {
@@ -31,7 +32,7 @@ export default function ServicesOverviewSection() {
             What We Do
           </span>
           <h2 className="font-montserrat font-bold text-white text-3xl md:text-4xl mt-3 mb-4 leading-tight">
-            5 Pillars of 360° Growth
+            6 Pillars of 360° Growth
           </h2>
           <p className="font-inter text-white/45 leading-relaxed">
             From finding your people to building your market presence —

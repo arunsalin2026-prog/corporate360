@@ -51,19 +51,6 @@ export interface SiteSettings {
   announcementBanner?: string
 }
 
-export interface OpenRole {
-  roleName?: string
-  roleType?: string
-  location?: string
-  description?: string
-  isActive?: boolean
-}
-
-export interface CareersPageData {
-  pageHeadline?: string
-  pageSubheadline?: string
-  openRoles?: OpenRole[]
-}
 
 const ISR = { next: { revalidate: 60 } }
 
@@ -91,6 +78,3 @@ export async function getSiteSettings(): Promise<SiteSettings | null> {
   return safeFetch<SiteSettings>(`*[_type == "siteSettings"][0]`)
 }
 
-export async function getCareersPage(): Promise<CareersPageData | null> {
-  return safeFetch<CareersPageData>(`*[_type == "careersPage"][0]`)
-}

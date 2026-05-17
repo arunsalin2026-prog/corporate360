@@ -239,16 +239,31 @@ curl -X POST https://corporate360hub.com/api/revalidate \
 ## KNOWN ISSUES / WATCH LIST
 
 <!-- Add any bugs, gotchas, or things to revisit here -->
-- [ ] Replace all placeholder phone/WhatsApp numbers once client confirms
-- [ ] Replace founder photo placeholder in About page
 - [ ] OG image at /public/og-image.jpg is placeholder — needs real image
 - [ ] Instagram and Facebook URLs pending from client
+- [ ] Link Vercel project (vercel link) and add env vars to Vercel dashboard
 
 ---
 
 ## SESSION LOG
 
 <!-- Each session appends one entry. Keep entries concise. -->
+
+### Session 15 — Content & Brand Updates
+Date: 2026-05-17
+Done:
+- Founder profile section added to About page — full bio, 8-role career timeline, awards block
+- Founder photo added: /public/images/founder-arun-salin.jpg (object-center positioning)
+- Business Model tab removed entirely (page, components, nav link, sitemap, constants)
+- Office address updated: Basement Floor, Pallath Square, Suite No. 370B, FACT Kalamassery Rd, Kalamassery, Kochi 683104
+- Google Maps embed updated to exact coordinates (10.064625, 76.321830)
+- Phone + WhatsApp updated: +91 70342 44404 / 917034244404
+- Email updated: info@corporate360hub.com (was contact@)
+- Brand scope expanded: all Kerala/14-districts references replaced with South India across every file
+- States/cities pills section removed from About page coverage section
+- Navbar fixed: always navy on inner pages, transparent only on home
+- "Mold" → "Mould" in hero headline and mission fallback
+Next: vercel link → add env vars to Vercel → git push to deploy
 
 ### Session 13 — Domain Update + Git Init
 Date: 2026-05-11

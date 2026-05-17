@@ -26,13 +26,16 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: "Corporate 360 Hub",
-  description: "Kerala's 360° Business Architecture Partner",
+  description: "South India's 360° Business Architecture Partner",
   url: "https://corporate360hub.com",
-  email: "contact@corporate360hub.com",
-  areaServed: "Kerala, India",
+  email: "info@corporate360hub.com",
+  areaServed: "South India",
   address: {
     "@type": "PostalAddress",
+    streetAddress: "Basement Floor, Pallath Square, Suite No. 370B, 5/257A8, FACT Kalamassery Rd, P.O, Kalamassery",
+    addressLocality: "Kochi",
     addressRegion: "Kerala",
+    postalCode: "683104",
     addressCountry: "IN",
   },
   sameAs: ["https://linkedin.com/company/corporate360hub"],
@@ -53,9 +56,9 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Corporate 360 Hub | Kerala's 360° Business Architecture Partner",
+    title: "Corporate 360 Hub | South India's 360° Business Architecture Partner",
     description:
-      "Kerala's only Single Point of Responsibility firm for HR, Marketing & Network Expansion. Serving all 14 districts. FMCG, FMCD, IT, Auto, Banking.",
+      "South India's 360° Business Architecture Partner — Single Point of Responsibility for HR, Marketing & Network Expansion. FMCG, FMCD, IT, Auto, Banking.",
     url: siteUrl,
     siteName: BRAND.company.name,
     locale: "en_IN",
@@ -71,9 +74,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Corporate 360 Hub | Kerala's 360° Business Architecture Partner",
+    title: "Corporate 360 Hub | South India's 360° Business Architecture Partner",
     description:
-      "Kerala's only Single Point of Responsibility firm for HR, Marketing & Network Expansion. Serving all 14 districts.",
+      "South India's 360° Business Architecture Partner — Single Point of Responsibility for HR, Marketing & Network Expansion.",
     images: [SITE_METADATA.ogImage],
   },
   verification: {

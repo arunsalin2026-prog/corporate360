@@ -35,7 +35,7 @@ export const homepageSchema = defineType({
       name: 'statBadge1',
       title: 'Stat Badge 1',
       type: 'string',
-      initialValue: '14 Districts',
+      initialValue: 'South India',
     }),
     defineField({
       name: 'statBadge2',

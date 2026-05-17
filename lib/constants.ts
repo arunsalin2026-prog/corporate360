@@ -10,11 +10,11 @@ export const BRAND = {
   },
   company: {
     name: "Corporate 360 Hub",
-    tagline: "Kerala's Only 360° Business Architecture Partner",
+    tagline: "South India's 360° Business Architecture Partner",
     subtitle: "The Business Architecture",
-    email: "contact@corporate360hub.com",
+    email: "info@corporate360hub.com",
     website: "corporate360hub.com",
-    location: "Kerala, India — All 14 Districts",
+    location: "Basement Floor, Pallath Square, Suite No. 370B, FACT Kalamassery Rd, Kalamassery, Kochi, Kerala 683104",
     social: {
       linkedin: "https://linkedin.com/company/corporate360hub",
       instagram: "#", // Pending from client
@@ -28,7 +28,6 @@ export const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
-  { label: "Business Model", href: "/business-model" },
   { label: "Industries", href: "/industries" },
   { label: "Careers", href: "/careers" },
   { label: "Contact", href: "/contact" },
@@ -65,7 +64,7 @@ export const SERVICES = [
     number: "04",
     title: "Product Launches & Dealer Meets",
     description:
-      "End-to-end execution of product launches, trade events, and dealer engagement programs across Kerala.",
+      "End-to-end execution of product launches, trade events, and dealer engagement programs across South India.",
     icon: "Rocket",
   },
   {
@@ -73,7 +72,7 @@ export const SERVICES = [
     number: "05",
     title: "Network Appointment & Expansion",
     description:
-      "Build and activate distribution networks across all 14 districts — from dealer onboarding to channel activation.",
+      "Build and activate distribution networks across South India — from dealer onboarding to channel activation.",
     icon: "Network",
   },
 ] as const;
@@ -102,45 +101,18 @@ export const STATS = [
 
 // Hero section stat badges
 export const HERO_BADGES = [
-  { value: "14", label: "Districts" },
+  { value: "5", label: "States" },
   { value: "360°", label: "Solutions" },
   { value: "5", label: "Business Pillars" },
 ] as const;
 
-export const BUSINESS_MODEL_PILLARS = [
-  {
-    title: "Diagnose",
-    description:
-      "Deep-dive assessment of your current business state, identifying gaps, risks, and opportunities.",
-    step: "01",
-  },
-  {
-    title: "Design",
-    description:
-      "Co-create a tailored architecture blueprint aligned to your vision, resources, and market context.",
-    step: "02",
-  },
-  {
-    title: "Deploy",
-    description:
-      "Structured implementation with milestone tracking, stakeholder alignment, and risk management.",
-    step: "03",
-  },
-  {
-    title: "Drive",
-    description:
-      "Ongoing performance monitoring, iteration, and optimization to sustain competitive advantage.",
-    step: "04",
-  },
-] as const;
-
 export const SITE_METADATA = {
   titleTemplate: "%s | Corporate 360 Hub",
-  defaultTitle: "Corporate 360 Hub | Kerala's Business Architecture Partner",
+  defaultTitle: "Corporate 360 Hub | South India's 360° Business Architecture Partner",
   description:
-    "Kerala's Only 360° Business Architecture Partner. We help organizations diagnose, design, deploy, and drive sustainable business success across all 14 districts.",
+    "South India's 360° Business Architecture Partner. We help organizations diagnose, design, deploy, and drive sustainable business success across South India.",
   keywords:
-    "business architecture, management consulting, business strategy, Kerala, B2B consulting, digital transformation, Corporate 360 Hub, 360 business",
+    "business architecture, management consulting, business strategy, South India, Kerala, Tamil Nadu, Karnataka, B2B consulting, digital transformation, Corporate 360 Hub, 360 business",
   ogImage: "/og-image.jpg",
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://corporate360hub.com",
 } as const;

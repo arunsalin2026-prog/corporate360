@@ -11,18 +11,18 @@ export const revalidate = 60;
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Corporate 360 Hub | Kerala's 360° Business Architecture Partner",
+    absolute: "Corporate 360 Hub | South India's 360° Business Architecture Partner",
   },
   description:
-    "Kerala's only Single Point of Responsibility firm for HR, Marketing & Network Expansion. Serving all 14 districts. FMCG, FMCD, IT, Auto, Banking.",
+    "South India's 360° Business Architecture Partner — Single Point of Responsibility for HR, Marketing & Network Expansion. FMCG, FMCD, IT, Auto, Banking.",
   keywords: [
-    "HR firm Kerala",
-    "manpower recruitment Kerala",
-    "BTL marketing agency Kerala",
-    "business development Kerala",
+    "HR firm South India",
+    "manpower recruitment South India",
+    "BTL marketing agency South India",
+    "business development South India",
     "360 business solutions India",
     "Single Point of Responsibility",
-    "business architecture Kerala",
+    "business architecture South India",
   ],
   alternates: { canonical: "/" },
 };

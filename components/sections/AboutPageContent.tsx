@@ -11,9 +11,7 @@ import {
   LineChart,
   RefreshCw,
   TrendingUp,
-  User,
   ArrowRight,
-  MapPin,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { urlFor } from "@/sanity/lib/client";
@@ -47,23 +45,6 @@ const CORE_VALUES = [
     title: "Continuous Growth",
     desc: "We evolve with your business. What works today is the floor, not the ceiling.",
   },
-] as const;
-
-const KERALA_DISTRICTS = [
-  "Thiruvananthapuram",
-  "Kollam",
-  "Pathanamthitta",
-  "Alappuzha",
-  "Kottayam",
-  "Idukki",
-  "Ernakulam",
-  "Thrissur",
-  "Palakkad",
-  "Malappuram",
-  "Kozhikode",
-  "Wayanad",
-  "Kannur",
-  "Kasaragod",
 ] as const;
 
 // ─── Animation helpers ────────────────────────────────────────────────────────
@@ -138,6 +119,7 @@ export default function AboutPageContent({
       <HeroSection />
       <VisionMissionSection vision={vision} mission={mission} />
       <OurStorySection ourStory={ourStory} founderName={founderName} founderDesignation={founderDesignation} founderPhoto={founderPhoto} />
+      <MeetTheFounderSection founderPhoto={founderPhoto} />
       <CoreValuesSection coreValues={coreValues} />
       <CoverageMapSection />
       <TeamSection founderName={founderName} founderDesignation={founderDesignation} founderPhoto={founderPhoto} />
@@ -183,7 +165,7 @@ function HeroSection() {
           </h1>
 
           <p className="font-inter font-medium text-teal text-lg md:text-xl leading-relaxed">
-            Kerala&apos;s Business Architecture Firm{" "}
+            South India&apos;s 360° Business Architecture Firm{" "}
             <span className="text-white/40">—</span>{" "}
             <span className="text-white/75">Built for Growth</span>
           </p>
@@ -237,7 +219,7 @@ function VisionMissionSection({ vision, mission }: { vision?: string; mission?: 
                 className="font-montserrat font-bold text-white leading-snug flex-1"
                 style={{ fontSize: "clamp(1.1rem, 2vw, 1.3rem)" }}
               >
-                {mission ?? "To mold businesses into their highest potential."}
+                {mission ?? "To mould businesses into their highest potential."}
               </p>
             </div>
           </motion.div>
@@ -266,7 +248,7 @@ const FALLBACK_STORY_PARAGRAPHS = [
     roof, with one team accountable for your growth.
   </>,
   <>
-    Founded in 2024, we operate across all 14 districts of Kerala with a single
+    Founded in 2024, we operate across South India with a single
     mission:{" "}
     <span className="text-navy font-semibold">
       be the growth backbone for India&apos;s most ambitious brands.
@@ -287,7 +269,7 @@ function OurStorySection({
 }) {
   const photoUrl = founderPhoto
     ? urlFor(founderPhoto).width(600).height(750).fit("crop").auto("format").url()
-    : null;
+    : "/images/founder-arun-salin.jpg";
 
   return (
     <section className="section-padding bg-white">
@@ -315,57 +297,23 @@ function OurStorySection({
 
           {/* Right — founder photo */}
           <motion.div {...fadeRight(0.12)}>
-            {photoUrl ? (
-              <div className="relative rounded-xl overflow-hidden aspect-[4/5]">
-                <Image
-                  src={photoUrl}
-                  alt={founderName ?? "Founder"}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-                {(founderName || founderDesignation) && (
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-navy/80 to-transparent p-6">
-                    {founderName && (
-                      <p className="font-montserrat font-bold text-white text-lg">
-                        {founderName}
-                      </p>
-                    )}
-                    {founderDesignation && (
-                      <p className="font-inter text-white/70 text-sm">
-                        {founderDesignation}
-                      </p>
-                    )}
-                  </div>
-                )}
+            <div className="relative rounded-xl overflow-hidden aspect-[4/5]">
+              <Image
+                src={photoUrl}
+                alt={founderName ?? "Arun Salin"}
+                fill
+                className="object-cover object-center"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-navy/80 to-transparent p-6">
+                <p className="font-montserrat font-bold text-white text-lg">
+                  {founderName ?? "Arun Salin"}
+                </p>
+                <p className="font-inter text-white/70 text-sm">
+                  {founderDesignation ?? "Founder & Lead Strategist"}
+                </p>
               </div>
-            ) : (
-              <div className="relative rounded-xl overflow-hidden bg-slate/[0.07] border-2 border-dashed border-slate/20 aspect-[4/5] flex flex-col items-center justify-center gap-4">
-                <div className="absolute inset-0 flex items-center justify-center opacity-[0.04] select-none">
-                  <span className="font-montserrat font-black text-8xl text-slate rotate-[-15deg]">
-                    PHOTO
-                  </span>
-                </div>
-                <div className="relative flex flex-col items-center gap-3 text-center px-8">
-                  <div className="w-20 h-20 rounded-full bg-slate/20 border-2 border-dashed border-slate/25 flex items-center justify-center">
-                    <User size={32} className="text-slate/35" />
-                  </div>
-                  <div>
-                    <p className="font-montserrat font-bold text-slate/50 text-sm">
-                      {founderDesignation ?? "Founder & CEO"}
-                    </p>
-                    <p className="font-inter text-slate/35 text-xs mt-1">
-                      Founder photo — coming soon
-                    </p>
-                  </div>
-                  <div className="mt-2 px-4 py-1.5 border border-teal/30 rounded-full">
-                    <p className="font-inter text-teal/60 text-xs">
-                      Corporate 360 Hub · Est. 2024
-                    </p>
-                  </div>
-                </div>
-              </div>
-            )}
+            </div>
           </motion.div>
 
         </div>
@@ -374,7 +322,257 @@ function OurStorySection({
   );
 }
 
-// ─── 4. Core Values ───────────────────────────────────────────────────────────
+// ─── 4. Meet the Founder ──────────────────────────────────────────────────────
+
+type CareerEntry = {
+  year: string;
+  company: string;
+  role: string;
+  desc: string;
+  highlight?: boolean;
+};
+
+const CAREER_TIMELINE: CareerEntry[] = [
+  {
+    year: "2011",
+    company: "Bajaj Electricals",
+    role: "Sales Officer",
+    desc: "Began his career learning the fundamentals of channel development, distributor appointment, and ground-level market activation across Kerala. Organised exhibitions, roadshows, and promotional events — building the habit of results-first execution that would define his entire career.",
+  },
+  {
+    year: "",
+    company: "Havells India",
+    role: "Deputy Manager",
+    desc: "Moved up to appointing innovative channel partners, launching dealer meets, electrician meets, and fan melas across central Kerala. Built high-value business associations with marquee clients like Lulu International.",
+  },
+  {
+    year: "",
+    company: "Usha International",
+    role: "Deputy Sales Manager — Premium Fans",
+    desc: "Led the Premium Fans department, working directly with architects and interior designers to position the right product in premium projects across Kerala. Introduced new models to the market, appointed dealers and distributors statewide, and contributed to scheme development for channel partners.",
+  },
+  {
+    year: "2020–2023",
+    company: "Atomberg Technologies",
+    role: "Regional Sales Manager — Kerala",
+    desc: "The defining chapter. In three years, took Kerala from 1,000 fans per month to 50,000 fans per month — making Kerala the Number One market in India for Atomberg's BLDC fan category. Built an entire sales force from scratch, created policies and market strategies, and won multiple national awards including the Great Leader Award, South Star, and Outstanding Contribution recognition in three consecutive quarters.",
+    highlight: true,
+  },
+  {
+    year: "",
+    company: "Luker Electric Technologies",
+    role: "Assistant General Manager — Tamil Nadu",
+    desc: "Expanded his footprint into Tamil Nadu, applying his proven market-building playbook to a new geography.",
+  },
+  {
+    year: "",
+    company: "KCM Appliances",
+    role: "Regional Sales Head — South India",
+    desc: "Took on a broader South India mandate, overseeing regional sales strategy and channel expansion.",
+  },
+  {
+    year: "",
+    company: "BSH Household Appliances (Bosch)",
+    role: "Branch Manager — Kerala",
+    desc: "Led Kerala operations for one of the world's most premium appliance brands, bringing enterprise-level discipline and premium market positioning experience.",
+  },
+  {
+    year: "2026",
+    company: "Corporate 360 Hub",
+    role: "Founder & Lead Strategist",
+    desc: "Drew on every lesson from 15 years of building markets to found Corporate 360 Hub — because he had lived, firsthand, the problem the firm was built to solve.",
+    highlight: true,
+  },
+];
+
+const FOUNDER_BIO_PARAS = [
+  "Arun Salin is the Founder and Lead Strategist of Corporate 360 Hub — South India's 360° Business Architecture firm. With over 15 years of hands-on experience building sales channels, leading high-performance teams, and driving market dominance for some of India's most respected consumer brands, Arun brings a rare combination of strategic vision and ground-level execution to every client engagement.",
+  "He has worked across South Indian Markets — not as a consultant observing from a distance, but as the man on the ground who built the networks, trained the teams, set the strategies, and delivered the numbers.",
+  "Arun's career is not a textbook story. It is a 15-year master class in what actually works — and what doesn't — when brands try to grow across South India's highly competitive and distribution-intensive markets.",
+];
+
+const FOUNDER_AWARDS = [
+  "Great Leader Award",
+  "South Star Award",
+  "Outstanding Contribution — 3 Consecutive Quarters",
+];
+
+function MeetTheFounderSection({ founderPhoto }: { founderPhoto?: unknown }) {
+  const photoUrl = founderPhoto
+    ? urlFor(founderPhoto).width(600).height(750).fit("crop").auto("format").url()
+    : "/images/founder-arun-salin.jpg";
+
+  return (
+    <section className="section-padding bg-offwhite">
+      <div className="container-max">
+
+        {/* Header */}
+        <motion.div {...fadeUp(0.05)} className="text-center max-w-xl mx-auto mb-14">
+          <SectionLabel color="gold">The Founder</SectionLabel>
+          <h2 className="font-montserrat font-bold text-navy text-3xl md:text-4xl leading-tight">
+            Meet Arun Salin
+          </h2>
+        </motion.div>
+
+        {/* Top block — photo + bio */}
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start mb-16">
+
+          {/* Photo */}
+          <motion.div {...fadeLeft(0.08)}>
+            <div className="relative rounded-xl overflow-hidden aspect-[4/5]">
+              <Image
+                src={photoUrl}
+                alt="Arun Salin — Founder, Corporate 360 Hub"
+                fill
+                className="object-cover object-center"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-navy/80 to-transparent p-6">
+                <p className="font-montserrat font-bold text-white text-lg">Arun Salin</p>
+                <p className="font-inter text-white/70 text-sm">Founder & Lead Strategist</p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Bio */}
+          <motion.div {...fadeRight(0.1)} className="flex flex-col justify-center">
+            <div className="w-14 h-[2px] bg-gold mb-7" />
+
+            <div className="space-y-4 font-inter text-slate text-base leading-relaxed mb-8">
+              {FOUNDER_BIO_PARAS.map((para, i) => (
+                <p key={i}>{para}</p>
+              ))}
+            </div>
+
+            {/* Key stats */}
+            <div className="grid grid-cols-3 gap-4 pt-6 border-t border-slate/10">
+              {[
+                { value: "15+", label: "Years Experience" },
+                { value: "50×", label: "Market Growth" },
+                { value: "#1", label: "Kerala — Atomberg" },
+              ].map((stat) => (
+                <div key={stat.label} className="text-center">
+                  <p className="font-montserrat font-bold text-navy text-2xl leading-none mb-1">
+                    {stat.value}
+                  </p>
+                  <p className="font-inter text-slate/50 text-xs leading-snug">
+                    {stat.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Career timeline */}
+        <motion.div {...fadeUp(0.08)} className="mb-12">
+          <h3 className="font-montserrat font-bold text-navy text-xl md:text-2xl mb-8 text-center">
+            The Journey That Built Corporate 360 Hub
+          </h3>
+
+          <div className="relative">
+            {/* Vertical line */}
+            <div className="absolute left-[18px] md:left-1/2 top-0 bottom-0 w-px bg-slate/15 md:-translate-x-px" aria-hidden />
+
+            <div className="space-y-6">
+              {CAREER_TIMELINE.map((item, i) => {
+                const isEven = i % 2 === 0;
+                return (
+                  <motion.div
+                    key={i}
+                    {...fadeUp(0.04 + i * 0.05)}
+                    className={cn(
+                      "relative flex md:items-center gap-6",
+                      "md:flex-row",
+                      isEven ? "md:flex-row" : "md:flex-row-reverse"
+                    )}
+                  >
+                    {/* Dot */}
+                    <div className="absolute left-[14px] md:left-1/2 md:-translate-x-1/2 w-2.5 h-2.5 rounded-full border-2 mt-5 md:mt-0 flex-shrink-0 z-10"
+                      style={{
+                        backgroundColor: item.highlight ? "#C9A84C" : "#0D7C7C",
+                        borderColor: item.highlight ? "#C9A84C" : "#0D7C7C",
+                      }}
+                    />
+
+                    {/* Card */}
+                    <div className={cn(
+                      "ml-10 md:ml-0 md:w-[calc(50%-2rem)]",
+                      isEven ? "md:mr-auto md:pr-8" : "md:ml-auto md:pl-8"
+                    )}>
+                      <div className={cn(
+                        "rounded-xl p-5 border",
+                        item.highlight
+                          ? "bg-navy border-gold/30"
+                          : "bg-white border-slate/10"
+                      )}>
+                        <div className="flex items-start justify-between gap-2 mb-1">
+                          <div>
+                            <p className={cn(
+                              "font-montserrat font-bold text-sm",
+                              item.highlight ? "text-white" : "text-navy"
+                            )}>
+                              {item.company}
+                            </p>
+                            <p className={cn(
+                              "font-inter text-xs mt-0.5",
+                              item.highlight ? "text-gold" : "text-teal"
+                            )}>
+                              {item.role}
+                            </p>
+                          </div>
+                          {item.year && (
+                            <span className={cn(
+                              "font-inter font-semibold text-xs px-2.5 py-1 rounded-full flex-shrink-0",
+                              item.highlight
+                                ? "bg-gold/20 text-gold"
+                                : "bg-slate/10 text-slate/60"
+                            )}>
+                              {item.year}
+                            </span>
+                          )}
+                        </div>
+                        <p className={cn(
+                          "font-inter text-sm leading-relaxed mt-2",
+                          item.highlight ? "text-white/70" : "text-slate/70"
+                        )}>
+                          {item.desc}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Spacer for the other side (desktop) */}
+                    <div className="hidden md:block md:w-[calc(50%-2rem)]" />
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Awards */}
+        <motion.div {...fadeUp(0.1)} className="bg-navy rounded-xl p-8 text-center">
+          <p className="font-inter font-semibold text-gold text-xs uppercase tracking-[0.22em] mb-4">
+            National Recognition — Atomberg Technologies
+          </p>
+          <div className="flex flex-wrap justify-center gap-3">
+            {FOUNDER_AWARDS.map((award) => (
+              <span
+                key={award}
+                className="px-4 py-2 bg-gold/10 border border-gold/25 rounded-full font-inter text-gold text-sm font-medium"
+              >
+                {award}
+              </span>
+            ))}
+          </div>
+        </motion.div>
+
+      </div>
+    </section>
+  );
+}
+
+// ─── 5. Core Values ───────────────────────────────────────────────────────────
 
 function CoreValuesSection({ coreValues }: { coreValues?: CoreValue[] }) {
   const values =
@@ -434,7 +632,7 @@ function CoreValuesSection({ coreValues }: { coreValues?: CoreValue[] }) {
   );
 }
 
-// ─── 5. Coverage Map ──────────────────────────────────────────────────────────
+// ─── 6. Coverage Map ──────────────────────────────────────────────────────────
 
 function CoverageMapSection() {
   return (
@@ -443,37 +641,11 @@ function CoverageMapSection() {
         <motion.div {...fadeUp(0.05)} className="text-center mb-12">
           <SectionLabel color="gold">Our Reach</SectionLabel>
           <h2 className="font-montserrat font-bold text-white text-3xl md:text-4xl leading-tight mb-4">
-            All 14 Districts of Kerala
+            Across South India
           </h2>
           <p className="font-inter text-white/45 text-base max-w-md mx-auto">
-            One team. 14 districts. Complete market coverage.
+            One team. Five states. Complete market coverage.
           </p>
-        </motion.div>
-
-        {/* District pills grid */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto mb-10"
-        >
-          {KERALA_DISTRICTS.map((district, i) => (
-            <motion.div
-              key={district}
-              initial={{ opacity: 0, scale: 0.85 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.32, delay: 0.04 + i * 0.04 }}
-            >
-              <div className="flex items-center gap-1.5 px-4 py-2 bg-teal/[0.12] border border-teal/25 rounded-full hover:border-teal/55 hover:bg-teal/20 transition-all duration-200 cursor-default group">
-                <MapPin size={11} className="text-teal/70 flex-shrink-0 group-hover:text-teal transition-colors" />
-                <span className="font-inter font-medium text-white/75 text-sm group-hover:text-white transition-colors">
-                  {district}
-                </span>
-              </div>
-            </motion.div>
-          ))}
         </motion.div>
 
         {/* Supporting stat strip */}
@@ -482,7 +654,7 @@ function CoverageMapSection() {
           className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12 pt-8 border-t border-white/10"
         >
           {[
-            { value: "14", label: "Districts Covered" },
+            { value: "5", label: "States Covered" },
             { value: "2024", label: "Founded" },
             { value: "1", label: "Point of Responsibility" },
           ].map((stat) => (
@@ -501,7 +673,7 @@ function CoverageMapSection() {
   );
 }
 
-// ─── 6. Team ──────────────────────────────────────────────────────────────────
+// ─── 7. Team ──────────────────────────────────────────────────────────────────
 
 function TeamSection({
   founderName,
@@ -514,7 +686,7 @@ function TeamSection({
 }) {
   const photoUrl = founderPhoto
     ? urlFor(founderPhoto).width(300).height(300).fit("crop").auto("format").url()
-    : null;
+    : "/images/founder-arun-salin.jpg";
 
   return (
     <section className="section-padding bg-white">
@@ -529,36 +701,26 @@ function TeamSection({
         {/* Founder card */}
         <motion.div {...fadeUp(0.1)} className="flex justify-center mb-10">
           <div className="w-64 text-center p-8 bg-offwhite rounded-xl border border-slate/10">
-            {photoUrl ? (
-              <div className="relative w-24 h-24 rounded-full overflow-hidden mx-auto mb-5">
-                <Image
-                  src={photoUrl}
-                  alt={founderName ?? "Founder"}
-                  fill
-                  className="object-cover"
-                  sizes="96px"
-                />
-              </div>
-            ) : (
-              <div className="w-24 h-24 rounded-full bg-slate/[0.12] border-2 border-dashed border-slate/20 flex items-center justify-center mx-auto mb-5">
-                <User size={36} className="text-slate/30" />
-              </div>
-            )}
+            <div className="relative w-24 h-24 rounded-full overflow-hidden mx-auto mb-5">
+              <Image
+                src={photoUrl}
+                alt={founderName ?? "Arun Salin"}
+                fill
+                className="object-cover object-[center_35%]"
+                sizes="96px"
+              />
+            </div>
 
-            {founderName ? (
-              <p className="font-montserrat font-bold text-navy text-sm mb-1">
-                {founderName}
-              </p>
-            ) : (
-              <div className="w-32 h-3.5 bg-slate/15 rounded-full mx-auto mb-2" />
-            )}
+            <p className="font-montserrat font-bold text-navy text-sm mb-1">
+              {founderName ?? "Arun Salin"}
+            </p>
 
             <p className="font-inter text-slate/50 text-sm mt-2 mb-1">
-              {founderDesignation ?? "Founder & CEO"}
+              {founderDesignation ?? "Founder & Lead Strategist"}
             </p>
-            {!founderPhoto && (
-              <span className="inline-block px-3 py-0.5 bg-teal/10 border border-teal/20 rounded-full font-inter text-teal text-xs font-medium mt-1">
-                Add photo
+            {false && (
+              <span className="hidden">
+                placeholder
               </span>
             )}
           </div>
@@ -568,7 +730,7 @@ function TeamSection({
         <motion.div {...fadeUp(0.15)} className="text-center max-w-md mx-auto">
           <p className="font-inter text-slate text-sm leading-relaxed mb-6">
             Growing team — open positions are listed on our Careers page.
-            We&apos;re looking for sharp, driven people to join Kerala&apos;s most
+            We&apos;re looking for sharp, driven people to join South India&apos;s most
             ambitious business architecture firm.
           </p>
           <Link

@@ -47,7 +47,7 @@ export default function CTASection() {
           >
             Ready to Scale Your Business
             <br className="hidden md:block" />
-            Across Kerala?
+            Across South India?
           </h2>
 
           <p className="font-inter text-navy/55 text-base md:text-lg leading-relaxed mb-10 max-w-lg mx-auto">

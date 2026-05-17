@@ -39,7 +39,7 @@ export default function IntroSection({ introParagraph }: { introParagraph?: stri
               className="font-montserrat font-bold text-navy leading-snug mb-4"
               style={{ fontSize: "clamp(1.2rem, 2.5vw, 1.6rem)" }}
             >
-              Kerala&apos;s first{" "}
+              South India&apos;s{" "}
               <span className="text-teal">
                 Single Point of Responsibility (SPR)
               </span>{" "}

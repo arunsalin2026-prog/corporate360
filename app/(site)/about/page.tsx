@@ -5,13 +5,13 @@ import { getAboutPage } from "@/sanity/lib/queries";
 export const revalidate = 60;
 
 export const metadata: Metadata = {
-  title: "About Us — Kerala's Business Architecture Firm",
+  title: "About Us — South India's Business Architecture Firm",
   description:
-    "Meet the team behind Corporate 360 Hub. Our founding story, vision, mission, and why we built Kerala's only Single Point of Responsibility firm for business growth.",
+    "Meet the team behind Corporate 360 Hub. Our founding story, vision, mission, and why we built South India's 360° Business Architecture firm.",
   keywords: [
     "about Corporate 360 Hub",
-    "business architecture firm Kerala",
-    "business consulting team Kerala",
+    "business architecture firm South India",
+    "business consulting team South India",
     "SPR firm India",
   ],
   alternates: { canonical: "/about" },

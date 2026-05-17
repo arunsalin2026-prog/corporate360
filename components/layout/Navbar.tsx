@@ -28,7 +28,8 @@ export default function Navbar() {
     return () => { document.body.style.overflow = ""; };
   }, [isOpen]);
 
-  const showBg = isScrolled || isOpen;
+  const isHome = pathname === "/";
+  const showBg = isScrolled || isOpen || !isHome;
 
   return (
     <>

@@ -119,7 +119,7 @@ export default function HeroSection({
           <motion.div variants={fadeUp}>
             <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-teal/[0.12] border border-teal/25 text-teal rounded-full font-inter font-semibold text-xs tracking-widest uppercase mb-8">
               <span className="w-1.5 h-1.5 rounded-full bg-teal animate-pulse flex-shrink-0" />
-              Kerala&apos;s Only 360° Partner
+              South India&apos;s 360° Partner
             </span>
           </motion.div>
 
@@ -131,7 +131,7 @@ export default function HeroSection({
           >
             {headline ?? (
               <>
-                We Mold Businesses.{" "}
+                We Mould Businesses.{" "}
                 <br className="hidden sm:block" />
                 We Build People.{" "}
                 <br className="hidden sm:block" />
@@ -148,7 +148,7 @@ export default function HeroSection({
           >
             {subheadline ?? (
               <>
-                <span className="text-teal">Kerala&apos;s Only 360° Business Architecture Partner</span>
+                <span className="text-teal">South India&apos;s 360° Business Architecture Partner</span>
                 <span className="text-white/30 mx-2">—</span>
                 <span className="text-white/70">People · Marketing · Network</span>
               </>

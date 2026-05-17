@@ -43,7 +43,7 @@ const INDUSTRIES = [
     full: "Fast-Moving Consumer Goods",
     Icon: ShoppingBag,
     description:
-      "From beverages to personal care — we place field promoters, run BTL campaigns, and expand dealer networks for FMCG brands across all 14 Kerala districts.",
+      "From beverages to personal care — we place field promoters, run BTL campaigns, and expand dealer networks for FMCG brands across South India.",
     contacts: ["Marketing Head", "Sales Head", "HR Manager"],
     services: [
       "Talent Acquisition",
@@ -77,7 +77,7 @@ const INDUSTRIES = [
     full: "Software, SaaS & Digital Services",
     Icon: Laptop,
     description:
-      "SaaS, software, digital services — we handle tech talent acquisition, sales force staffing, and go-to-market execution for IT companies entering Kerala.",
+      "SaaS, software, digital services — we handle tech talent acquisition, sales force staffing, and go-to-market execution for IT companies entering South India.",
     contacts: ["HR Head", "Talent Acquisition Manager"],
     services: [
       "Tech Talent Acquisition",
@@ -180,8 +180,7 @@ function PageHero() {
           {...fadeUp(0.16)}
           className="font-inter text-white/65 text-lg leading-relaxed max-w-2xl"
         >
-          Deep sector knowledge. Ground-level execution. Five industries, all 14
-          districts.
+          Deep sector knowledge. Ground-level execution. Five industries across South India.
         </motion.p>
       </div>
     </section>

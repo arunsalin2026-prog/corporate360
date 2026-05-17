@@ -69,7 +69,7 @@ const PILLARS = [
     icon: "BarChart2" as const,
     paragraphs: [
       "Strategy built on assumption is strategy built on sand. Our market intelligence practice gives you ground-level data — direct from consumers, channels, and competitors — that turns guesswork into confident decisions.",
-      "We conduct primary and secondary research across all 14 districts of Kerala, mapping purchase behaviour, channel preferences, brand perception, and white-space opportunities specific to your category and geography.",
+      "We conduct primary and secondary research across South India, mapping purchase behaviour, channel preferences, brand perception, and white-space opportunities specific to your category and geography.",
       "Every research engagement ends with a management-ready brief: key findings, strategic implications, and a prioritised action plan — not a thick report that gathers dust.",
     ],
     features: [
@@ -88,7 +88,7 @@ const PILLARS = [
     icon: "Rocket" as const,
     paragraphs: [
       "A product launch is a one-time event with permanent consequences. Get it right and you create market momentum. Get it wrong and you spend months rebuilding credibility. We take the execution risk off your plate.",
-      "From the first planning meeting to the last post-event report, our team manages every detail: venue selection, logistics, AV and production, dealer incentive structures, media coverage, and social amplification. We've run launches for national brands entering Kerala and local brands going pan-India.",
+      "From the first planning meeting to the last post-event report, our team manages every detail: venue selection, logistics, AV and production, dealer incentive structures, media coverage, and social amplification. We've run launches for national brands entering South India and local brands going pan-India.",
       "Our dealer meet programs are built to do more than inform — they're designed to motivate. We craft experiences that reinforce brand loyalty, communicate trade terms, and send your channel partners home ready to sell.",
     ],
     features: [
@@ -106,8 +106,8 @@ const PILLARS = [
     title: "Network Appointment & Expansion",
     icon: "Network" as const,
     paragraphs: [
-      "Distribution is destiny. A superior product sitting in a warehouse is worth nothing. We build the on-the-ground networks that get your product into every relevant retail point across Kerala's 14 districts.",
-      "Our process starts with a district-wise opportunity map — identifying the right distributor profiles, dealer tiers, and coverage gaps. We then manage the entire appointment process: prospecting, due diligence, onboarding, and commercial agreement structuring.",
+      "Distribution is destiny. A superior product sitting in a warehouse is worth nothing. We build the on-the-ground networks that get your product into every relevant retail point across South India.",
+      "Our process starts with a market-wise opportunity map — identifying the right distributor profiles, dealer tiers, and coverage gaps. We then manage the entire appointment process: prospecting, due diligence, onboarding, and commercial agreement structuring.",
       "Post-appointment, we don't disappear. Our network activation programs ensure your new channels are performing against target — with regular health audits, incentive programs, and retail visibility standards that sustain sell-through.",
     ],
     features: [
@@ -243,7 +243,7 @@ function PageHero() {
           className="font-inter text-white/65 text-lg leading-relaxed max-w-2xl mb-12"
         >
           Five integrated service pillars. One accountable partner. Delivered
-          across all 14 districts of Kerala.
+          across South India.
         </motion.p>
 
         {/* Pill navigation anchors */}
@@ -490,12 +490,6 @@ function SPRSection() {
               size={16}
               className="group-hover:translate-x-1 transition-transform duration-200"
             />
-          </Link>
-          <Link
-            href="/business-model"
-            className="inline-flex items-center gap-2 px-8 py-4 border-2 border-navy/30 text-navy font-inter font-semibold text-sm rounded-lg hover:border-navy hover:bg-navy/5 transition-all duration-200"
-          >
-            See Our Business Model
           </Link>
         </motion.div>
       </div>

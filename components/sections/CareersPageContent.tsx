@@ -30,28 +30,28 @@ const OPEN_ROLES = [
   {
     title: "Recruitment Executive",
     type: "Full Time",
-    location: "All 14 Districts",
+    location: "South India",
     description:
       "Source, screen, and place candidates for FMCG, automotive, and NBFC clients. Strong networking and communication skills required.",
   },
   {
     title: "BTL Activation Coordinator",
     type: "Full Time",
-    location: "All 14 Districts",
+    location: "South India",
     description:
       "Plan and execute below-the-line campaigns, in-store activations, and sampling drives for leading consumer brands.",
   },
   {
     title: "Business Development Manager",
     type: "Full Time",
-    location: "Kerala",
+    location: "South India",
     description:
       "Drive new client acquisition, manage key accounts, and represent Corporate 360 Hub across target industries.",
   },
   {
     title: "Field Promoters",
     type: "Contract",
-    location: "All 14 Districts",
+    location: "South India",
     description:
       "Represent brands at retail touchpoints, events, and activations. Flexible schedules, competitive daily rates.",
   },

@@ -100,7 +100,7 @@ export default function Footer({ siteSettings }: { siteSettings?: SiteSettings |
             </p>
 
             <p className="text-white/35 font-inter text-sm leading-relaxed max-w-xs mb-8">
-              Helping businesses across Kerala diagnose, design, deploy, and drive
+              Helping businesses across South India diagnose, design, deploy, and drive
               sustainable success — from idea to institution.
             </p>
 

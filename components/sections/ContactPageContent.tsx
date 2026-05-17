@@ -310,8 +310,8 @@ function FormAndDetailsSection() {
             {/* Location */}
             <ContactDetail
               icon={MapPin}
-              label="Coverage"
-              text="Kerala, India — All 14 Districts"
+              label="Office"
+              text="Basement Floor, Pallath Square, Suite No. 370B, FACT Kalamassery Rd, Kalamassery, Kochi, Kerala 683104"
             />
 
             {/* LinkedIn */}
@@ -359,8 +359,8 @@ function MapSection() {
     <section className="bg-offwhite pb-16 md:pb-24">
       <div className="container-max">
         <motion.div {...fadeUp(0)} className="mb-6">
-          <p className="font-inter text-slate/70 text-sm italic">
-            Serving all 14 districts — no fixed office.
+          <p className="font-inter text-slate/70 text-sm">
+            Basement Floor, Pallath Square, Suite No. 370B, FACT Kalamassery Rd, Kalamassery, Kochi, Kerala 683104
           </p>
         </motion.div>
         <motion.div
@@ -369,12 +369,12 @@ function MapSection() {
           style={{ height: 380 }}
         >
           <iframe
-            title="Kerala, India map"
+            title="Corporate 360 Hub office location — Kalamassery, Kochi"
             width="100%"
             height="100%"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2028000!2d76.27108!3d10.85051!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0812fda00df081%3A0x95a28a5cddbf3a3e!2sKerala%2C+India!5e0!3m2!1sen!2sin!4v1699900000000!5m2!1sen!2sin"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d500!2d76.321830!3d10.064625!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDAzJzUyLjciTiA3NsKwMTknMTguNiJF!5e0!3m2!1sen!2sin!4v1699900000000!5m2!1sen!2sin"
             style={{ border: 0 }}
           />
         </motion.div>

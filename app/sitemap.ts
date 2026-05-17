@@ -25,12 +25,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: `${siteUrl}/business-model`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
       url: `${siteUrl}/industries`,
       lastModified: now,
       changeFrequency: "monthly",

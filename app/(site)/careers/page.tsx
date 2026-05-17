@@ -7,13 +7,13 @@ export const revalidate = 60;
 export const metadata: Metadata = {
   title: "Careers — Join the 360° Team",
   description:
-    "Join the Corporate 360 Hub team. Open roles in recruitment, BTL activation, business development, and field operations across all 14 districts of Kerala. Apply now.",
+    "Join the Corporate 360 Hub team. Open roles in recruitment, BTL activation, business development, and field operations across South India. Apply now.",
   keywords: [
-    "jobs in Kerala",
-    "recruitment executive jobs Kerala",
-    "BTL coordinator jobs Kerala",
-    "business development jobs Kerala",
-    "field sales jobs Kerala",
+    "jobs in South India",
+    "recruitment executive jobs South India",
+    "BTL coordinator jobs South India",
+    "business development jobs South India",
+    "field sales jobs South India",
   ],
   alternates: { canonical: "/careers" },
 };

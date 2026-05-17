@@ -7,14 +7,14 @@ export const revalidate = 60;
 export const metadata: Metadata = {
   title: "Our Services — 5 Business Pillars",
   description:
-    "Corporate 360 Hub's 5 integrated service pillars: Talent Acquisition & HR Training, Marketing & Branding (ATL·BTL·TTL), Market Research, Product Launches & Dealer Meets, and Network Expansion — all 14 districts of Kerala.",
+    "Corporate 360 Hub's 5 integrated service pillars: Talent Acquisition & HR Training, Marketing & Branding (ATL·BTL·TTL), Market Research, Product Launches & Dealer Meets, and Network Expansion — across South India.",
   keywords: [
-    "HR training Kerala",
-    "BTL activation Kerala",
-    "market research Kerala",
-    "dealer network expansion Kerala",
-    "product launch management Kerala",
-    "manpower outsourcing Kerala",
+    "HR training South India",
+    "BTL activation South India",
+    "market research South India",
+    "dealer network expansion South India",
+    "product launch management South India",
+    "manpower outsourcing South India",
   ],
   alternates: { canonical: "/services" },
 };

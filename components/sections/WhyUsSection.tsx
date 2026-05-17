@@ -6,7 +6,7 @@ import { CheckCircle2 } from "lucide-react";
 const WHY_US_POINTS = [
   {
     title: "We Find the Dealers",
-    desc: "Identify, onboard, and activate the right distribution partners across Kerala's 14 districts.",
+    desc: "Identify, onboard, and activate the right distribution partners across South India.",
   },
   {
     title: "We Hire the Staff",

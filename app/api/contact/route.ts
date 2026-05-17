@@ -8,6 +8,11 @@ const rateLimitMap = new Map<string, number>();
 const RATE_LIMIT_MS = 5 * 60 * 1000; // 5 minutes
 
 export async function POST(req: NextRequest) {
+  if (!process.env.RESEND_API_KEY) {
+    console.error("[contact] RESEND_API_KEY is not set");
+    return NextResponse.json({ error: "Email service not configured" }, { status: 500 });
+  }
+
   try {
     const body = await req.json();
     const result = contactFormSchema.safeParse(body);
@@ -35,8 +40,12 @@ export async function POST(req: NextRequest) {
 
     const resend = new Resend(process.env.RESEND_API_KEY);
 
+    const fromAddress = process.env.RESEND_FROM_EMAIL
+      ? `Corporate 360 Hub <${process.env.RESEND_FROM_EMAIL}>`
+      : "Corporate 360 Hub <onboarding@resend.dev>";
+
     await resend.emails.send({
-      from: `Corporate 360 Hub <noreply@${BRAND.company.website}>`,
+      from: fromAddress,
       to: [BRAND.company.email],
       reply_to: email,
       subject: `New Inquiry: ${service} from ${company}`,
@@ -80,7 +89,7 @@ export async function POST(req: NextRequest) {
 
     // Confirmation email to submitter
     await resend.emails.send({
-      from: `Corporate 360 Hub <noreply@${BRAND.company.website}>`,
+      from: fromAddress,
       to: [email],
       subject: "We've received your message — Corporate 360 Hub",
       html: `

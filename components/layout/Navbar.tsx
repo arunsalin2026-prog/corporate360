@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -45,19 +46,29 @@ export default function Navbar() {
         )}
       >
         <nav className="container-max">
-          <div className="flex items-center justify-between h-16 md:h-[72px]">
+          <div className="flex items-center justify-between h-24 md:h-[100px]">
 
             {/* Logo */}
-            <Link href="/" className="flex flex-col leading-none group select-none">
-              <span className="font-montserrat font-bold text-gold text-lg md:text-xl tracking-tight group-hover:text-gold/90 transition-colors duration-200">
-                Corporate 360 Hub
-              </span>
-              <span
-                className="font-inter font-medium text-teal tracking-[0.18em] uppercase mt-0.5"
-                style={{ fontSize: "10px", letterSpacing: "0.18em" }}
-              >
-                {BRAND.company.subtitle}
-              </span>
+            <Link href="/" className="flex items-center gap-0 select-none group flex-shrink-0">
+              <Image
+                src="/images/logo-transparent.png"
+                alt="Corporate 360 Hub"
+                width={80}
+                height={80}
+                className="h-20 md:h-24 w-auto object-contain flex-shrink-0"
+                priority
+              />
+              <div className="flex flex-col leading-none -ml-6">
+                <span className="font-montserrat font-bold text-gold text-base md:text-xl tracking-tight group-hover:text-gold/90 transition-colors duration-200">
+                  Corporate 360 Hub
+                </span>
+                <span
+                  className="font-inter font-medium text-teal tracking-[0.18em] uppercase mt-0.5"
+                  style={{ fontSize: "9px" }}
+                >
+                  The Business Architecture
+                </span>
+              </div>
             </Link>
 
             {/* Desktop nav */}

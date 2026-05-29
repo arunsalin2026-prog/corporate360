@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Mail, MapPin, Globe, Linkedin, Instagram, Facebook } from "lucide-react";
 import { NAV_LINKS, BRAND } from "@/lib/constants";
 import type { SiteSettings } from "@/sanity/lib/queries";
@@ -82,16 +83,14 @@ export default function Footer({ siteSettings }: { siteSettings?: SiteSettings |
 
           {/* Column 1 — Brand */}
           <div className="md:col-span-5">
-            <Link href="/" className="inline-flex flex-col leading-none mb-4 group">
-              <span className="font-montserrat font-bold text-gold text-xl tracking-tight group-hover:text-gold/90 transition-colors">
-                Corporate 360 Hub
-              </span>
-              <span
-                className="font-inter font-medium text-teal tracking-[0.18em] uppercase mt-0.5"
-                style={{ fontSize: "10px" }}
-              >
-                {BRAND.company.subtitle}
-              </span>
+            <Link href="/" className="inline-flex -mb-4">
+              <Image
+                src="/images/logo-transparent.png"
+                alt="Corporate 360 Hub — Business Architecture"
+                width={200}
+                height={120}
+                className="h-36 w-auto object-contain"
+              />
             </Link>
 
             <p className="text-white/50 font-inter text-sm leading-relaxed max-w-xs mt-4 mb-6">

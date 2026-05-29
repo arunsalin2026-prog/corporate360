@@ -5,7 +5,16 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, ArrowRight } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
 
-const SESSION_KEY = "exit_intent_shown";
+const STORAGE_KEY = "exit_intent_last_shown";
+const COOLDOWN_DAYS = 0.5;
+const MIN_TIME_ON_PAGE_MS = 30_000;
+
+function hasRecentlyShown(): boolean {
+  const last = localStorage.getItem(STORAGE_KEY);
+  if (!last) return false;
+  const daysSince = (Date.now() - Number(last)) / (1000 * 60 * 60 * 24);
+  return daysSince < COOLDOWN_DAYS;
+}
 
 export default function ExitIntentPopup() {
   const [visible, setVisible] = useState(false);
@@ -14,34 +23,46 @@ export default function ExitIntentPopup() {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
   const lastScrollY = useRef(0);
+  const readyToShow = useRef(false);
+  const hasShown = useRef(false);
 
   useEffect(() => {
-    if (sessionStorage.getItem(SESSION_KEY)) return;
+    if (hasRecentlyShown()) return;
+
+    const timer = setTimeout(() => {
+      readyToShow.current = true;
+    }, MIN_TIME_ON_PAGE_MS);
 
     const isMobile = window.innerWidth < 768;
 
     if (!isMobile) {
-      // Desktop: trigger when mouse exits through top of viewport
       const handleMouseLeave = (e: MouseEvent) => {
-        if (e.clientY <= 0) show();
+        if (e.clientY <= 0 && readyToShow.current) show();
       };
       document.addEventListener("mouseleave", handleMouseLeave);
-      return () => document.removeEventListener("mouseleave", handleMouseLeave);
+      return () => {
+        clearTimeout(timer);
+        document.removeEventListener("mouseleave", handleMouseLeave);
+      };
     } else {
-      // Mobile: trigger on scroll up ≥80px
       const handleScroll = () => {
         const current = window.scrollY;
-        if (lastScrollY.current - current > 80 && current > 200) show();
+        if (lastScrollY.current - current > 150 && current > 300 && readyToShow.current) show();
         lastScrollY.current = current;
       };
       window.addEventListener("scroll", handleScroll, { passive: true });
-      return () => window.removeEventListener("scroll", handleScroll);
+      return () => {
+        clearTimeout(timer);
+        window.removeEventListener("scroll", handleScroll);
+      };
     }
   }, []);
 
   function show() {
+    if (hasShown.current) return;
+    hasShown.current = true;
     setVisible(true);
-    sessionStorage.setItem(SESSION_KEY, "1");
+    localStorage.setItem(STORAGE_KEY, String(Date.now()));
     trackEvent("exit_intent_shown");
   }
 

@@ -395,7 +395,6 @@ const CAREER_TIMELINE: CareerEntry[] = [
     company: "Atomberg Technologies",
     role: "Regional Sales Manager — Kerala",
     desc: "The defining chapter. In three years, took Kerala from 1,000 fans per month to 50,000 fans per month — making Kerala the Number One market in India for Atomberg's BLDC fan category. Built an entire sales force from scratch, created policies and market strategies, and won multiple national awards including the Great Leader Award, South Star, and Outstanding Contribution recognition in three consecutive quarters.",
-    highlight: true,
   },
   {
     year: "",

@@ -373,7 +373,7 @@ type CareerEntry = {
 
 const CAREER_TIMELINE: CareerEntry[] = [
   {
-    year: "2011",
+    year: "",
     company: "Bajaj Electricals",
     role: "Sales Officer",
     desc: "Began his career learning the fundamentals of channel development, distributor appointment, and ground-level market activation across Kerala. Organised exhibitions, roadshows, and promotional events — building the habit of results-first execution that would define his entire career.",
@@ -391,7 +391,7 @@ const CAREER_TIMELINE: CareerEntry[] = [
     desc: "Led the Premium Fans department, working directly with architects and interior designers to position the right product in premium projects across Kerala. Introduced new models to the market, appointed dealers and distributors statewide, and contributed to scheme development for channel partners.",
   },
   {
-    year: "2020–2023",
+    year: "",
     company: "Atomberg Technologies",
     role: "Regional Sales Manager — Kerala",
     desc: "The defining chapter. In three years, took Kerala from 1,000 fans per month to 50,000 fans per month — making Kerala the Number One market in India for Atomberg's BLDC fan category. Built an entire sales force from scratch, created policies and market strategies, and won multiple national awards including the Great Leader Award, South Star, and Outstanding Contribution recognition in three consecutive quarters.",
@@ -415,7 +415,7 @@ const CAREER_TIMELINE: CareerEntry[] = [
     desc: "Led Kerala operations for one of the world's most premium appliance brands, bringing enterprise-level discipline and premium market positioning experience.",
   },
   {
-    year: "2026",
+    year: "",
     company: "Corporate 360 Hub",
     role: "Founder & Lead Strategist",
     desc: "Drew on every lesson from 15 years of building markets to found Corporate 360 Hub — because he had lived, firsthand, the problem the firm was built to solve.",
